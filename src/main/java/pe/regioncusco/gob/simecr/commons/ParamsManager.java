@@ -1,0 +1,38 @@
+package pe.regioncusco.gob.simecr.commons;
+
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+public final class ParamsManager {
+
+    //public static final String SERVER_URL = "http://127.0.0.1:8080/auth";
+    public static final String SERVER_URL = "http://oauth.regioncusco.gob.pe/auth";
+    public static final String REALM_MASTER = "master";
+    public static final String REALM = "sipac";
+    public static final String CLIENT_ID = "admin-cli";
+    public static final String USERNAME = "";
+    public static final String PASSWORD = "";
+
+    public static final String REALM_ADMIN = "simecr-realm-admin";
+    public static final String REALM_USER = "simecr-realm-user";
+
+    public static final String ROLE_ADMIN = "simecr_admin";
+    public static final String ROLE_USER = "simecr_user";
+
+    public static final Path PATH_DOCUMENTOS_CONTROL = Paths.get("control");
+    public static final Path PATH_DOCUMENTOS_REMEMDIACION = Paths.get("remediacion");
+
+    private static ParamsManager paramsManager;
+
+    private ParamsManager(){
+
+    }
+
+    public static ParamsManager getInstance(){
+        if(paramsManager == null){
+            return new ParamsManager();
+        }
+        return paramsManager;
+    }
+
+}
