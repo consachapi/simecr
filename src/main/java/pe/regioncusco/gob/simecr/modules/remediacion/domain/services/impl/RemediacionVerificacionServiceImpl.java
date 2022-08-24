@@ -99,6 +99,17 @@ public class RemediacionVerificacionServiceImpl implements RemediacionVerificaci
         return remediacionVerificacions.stream().map(remediacionVerificacion -> remediacionVerificacionMapper.toRemediacionVerificacionDto(remediacionVerificacion)).collect(Collectors.toList());
     }
 
+    @Override
+    public RemediacionVerificacionDto cambiarEstado(Long id) {
+        RemediacionVerificacion remediacionVerificacion = findById(id);
+        if (remediacionVerificacion.getEstado() == RemediacionVerificacionEstado.PENDIENTE.value()) {
+            RemediacionVerificacion remediacionVerificacion1 = this.remediacionVerificacionPersistence.changeEstado(remediacionVerificacion, RemediacionVerificacionEstado.COMPLETADO.value(), this.accessToken.getUserId());
+            return this.remediacionVerificacionMapper.toRemediacionVerificacionDto(remediacionVerificacion1);
+        }
+        RemediacionVerificacion update = this.remediacionVerificacionPersistence.changeEstado(remediacionVerificacion, RemediacionVerificacionEstado.PENDIENTE.value(), this.accessToken.getUserId());
+        return this.remediacionVerificacionMapper.toRemediacionVerificacionDto(update);
+    }
+
     private RemediacionVerificacion findById(Long id){
         Optional<RemediacionVerificacion> optional = remediacionVerificacionPersistence.findById(id);
         if(!optional.isPresent()){

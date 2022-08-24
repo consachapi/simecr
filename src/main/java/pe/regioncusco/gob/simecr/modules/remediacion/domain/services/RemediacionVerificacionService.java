@@ -17,4 +17,5 @@ public interface RemediacionVerificacionService {
     RemediacionVerificacion findRemediacionVerificacionById(Long id);
     RemediacionVerificacionDto find(Long id);
     List<RemediacionVerificacionDto> findAllByUsuario();
+    RemediacionVerificacionDto cambiarEstado(Long id);
 }

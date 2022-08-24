@@ -86,4 +86,13 @@ public class RemediacionVerificacionPersistenceData implements RemediacionVerifi
         List<RemediacionVerificacionEntity> remediacionVerificacionEntities = remediacionVerificacionEntityRepository.findAllByOficinasIn(oficinaEntities);
         return remediacionVerificacionEntities.stream().map(remediacionVerificacionEntity -> remediacionVerificacionEntity.toRemediacionVerificacion()).collect(Collectors.toList());
     }
+
+    @Override
+    public RemediacionVerificacion changeEstado(RemediacionVerificacion remediacionVerificacion, Integer estado, String username) {
+        RemediacionVerificacionEntity remediacionVerificacionEntity = this.remediacionVerificacionEntityRepository.findById(remediacionVerificacion.getId()).get();
+        remediacionVerificacionEntity.setEstado(estado);
+        remediacionVerificacionEntity.setUsuario(username);
+        RemediacionVerificacionEntity update = (RemediacionVerificacionEntity)this.remediacionVerificacionEntityRepository.save(remediacionVerificacionEntity);
+        return update.toRemediacionVerificacion();
+    }
 }

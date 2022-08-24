@@ -15,4 +15,5 @@ public interface RemediacionVerificacionPersistence {
     List<RemediacionVerificacion> findAllByMedidasRemediacion(MedidasRemediacion medidasRemediacion);
     Optional<RemediacionVerificacion> findById(Long id);
     List<RemediacionVerificacion> findAllByOficinas(List<Oficina> oficinas);
+    RemediacionVerificacion changeEstado(RemediacionVerificacion remediacionVerificacion, Integer estado, String username);
 }

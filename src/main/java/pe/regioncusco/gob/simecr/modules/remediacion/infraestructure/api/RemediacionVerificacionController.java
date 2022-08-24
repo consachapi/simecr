@@ -26,6 +26,7 @@ public class RemediacionVerificacionController {
     private static final String ASIGNAR_RESPONSABLE = "/asignar/responsable/{id}";
     private static final String MOSTRAR = "/mostrar/{id}";
     private static final String LISTAR_POR_USUARIO = "/listar/usuario";
+    private static final String CAMBIAR_ESTADO = "/cambiar/{id}";
 
     @Autowired private RemediacionVerificacionService remediacionVerificacionService;
 
@@ -69,6 +70,13 @@ public class RemediacionVerificacionController {
     @RolesAllowed(ParamsManager.ROLE_USER)
     public ResponseEntity<List<RemediacionVerificacionDto>> findAllByUsuario(){
         return new ResponseEntity<>(remediacionVerificacionService.findAllByUsuario(), HttpStatus.OK);
+    }
+
+    @PutMapping(CAMBIAR_ESTADO)
+    @ResponseStatus(HttpStatus.OK)
+    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    public ResponseEntity<RemediacionVerificacionDto> cambiarEstado(@PathVariable Long id) {
+        return new ResponseEntity(this.remediacionVerificacionService.cambiarEstado(id), HttpStatus.OK);
     }
 
 }

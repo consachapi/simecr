@@ -83,4 +83,13 @@ public class ControlVerificacionPersistenceData implements ControlVerificacionPe
         List<ControlVerificacionEntity> controlVerificacionsEntities = controlVerificacionEntityRepository.findAllByOficinasIn(oficinaEntities);
         return controlVerificacionsEntities.stream().map(controlVerificacionEntity -> controlVerificacionEntity.toControlVerificacion()).collect(Collectors.toList());
     }
+
+    @Override
+    public ControlVerificacion changeEstado(ControlVerificacion controlVerificacion, Integer estado, String username) {
+        ControlVerificacionEntity controlVerificacionEntity = this.controlVerificacionEntityRepository.findById(controlVerificacion.getId()).get();
+        controlVerificacionEntity.setEstado(estado);
+        controlVerificacionEntity.setUsuario(username);
+        ControlVerificacionEntity update = (ControlVerificacionEntity)this.controlVerificacionEntityRepository.save(controlVerificacionEntity);
+        return update.toControlVerificacion();
+    }
 }

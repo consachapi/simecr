@@ -97,6 +97,17 @@ public class ControlVerificacionServiceImpl implements ControlVerificacionServic
         return controlVerificacions.stream().map(controlVerificacion -> controlVerificacionMapper.toControlVerificacionDto(controlVerificacion)).collect(Collectors.toList());
     }
 
+    @Override
+    public ControlVerificacionDto cambiarEstado(Long id) {
+        ControlVerificacion controlVerificacion = findById(id);
+        if (controlVerificacion.getEstado() == ControlVerificacionEstado.PENDIENTE.value()) {
+            ControlVerificacion controlVerificacion1 = this.controlVerificacionPersistence.changeEstado(controlVerificacion, ControlVerificacionEstado.COMPLETADO.value(), this.accessToken.getUserId());
+            return this.controlVerificacionMapper.toControlVerificacionDto(controlVerificacion1);
+        }
+        ControlVerificacion update = this.controlVerificacionPersistence.changeEstado(controlVerificacion, ControlVerificacionEstado.PENDIENTE.value(), this.accessToken.getUserId());
+        return this.controlVerificacionMapper.toControlVerificacionDto(update);
+    }
+
     private ControlVerificacion findById(Long id){
         Optional<ControlVerificacion> controlVerificacion = controlVerificacionPersistence.findById(id);
         if(!controlVerificacion.isPresent()){

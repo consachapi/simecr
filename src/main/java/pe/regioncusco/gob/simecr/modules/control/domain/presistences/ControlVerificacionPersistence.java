@@ -14,4 +14,5 @@ public interface ControlVerificacionPersistence {
     List<ControlVerificacion> findAllByMedidaControl(MedidasControl medidasControl);
     Optional<ControlVerificacion> findById(Long id);
     List<ControlVerificacion> findAllByOficinas(List<Oficina> oficinas);
+    ControlVerificacion changeEstado(ControlVerificacion paramControlVerificacion, Integer paramInteger, String paramString);
 }

@@ -27,6 +27,7 @@ public class ControlVerificacionController {
     private static final String MOSTRAR = "/mostrar/{id}";
     private static final String ELIMINAR = "/eliminar/{id}";
     private static final String LISTAR_POR_USUARIO = "/listar/usuario";
+    private static final String CAMBIAR_ESTADO = "/cambiar/{id}";
 
     @Autowired private ControlVerificacionService controlVerificacionService;
 
@@ -70,6 +71,13 @@ public class ControlVerificacionController {
     @RolesAllowed(ParamsManager.ROLE_USER)
     public ResponseEntity<ControlVerificacionDto> findById(@PathVariable Long id){
         return new ResponseEntity<>(controlVerificacionService.find(id), HttpStatus.OK);
+    }
+
+    @PutMapping(CAMBIAR_ESTADO)
+    @ResponseStatus(HttpStatus.OK)
+    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    public ResponseEntity<ControlVerificacionDto> cambiarEstado(@PathVariable Long id) {
+        return new ResponseEntity(this.controlVerificacionService.cambiarEstado(id), HttpStatus.OK);
     }
 
 }

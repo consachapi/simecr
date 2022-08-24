@@ -16,4 +16,5 @@ public interface ControlVerificacionService {
     ControlVerificacion findControlVerificacionById(Long id);
     ControlVerificacionDto find(Long id);
     List<ControlVerificacionDto> findAllByUsuario();
+    ControlVerificacionDto cambiarEstado(Long paramLong);
 }
