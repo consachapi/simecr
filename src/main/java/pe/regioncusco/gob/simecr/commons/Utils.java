@@ -48,4 +48,9 @@ public final class Utils {
             throw new BadRequestException("Ocurrio un error al extraer el archivo");
         }
     }
+
+    public static String encodeBytes(byte[] encodeBytes){
+        byte[] encode = Base64.getEncoder().encode(encodeBytes);
+        return new String(encode);
+    }
 }
