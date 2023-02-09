@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import pe.regioncusco.gob.simecr.commons.ParamsManager;
 import pe.regioncusco.gob.simecr.config.Rest;
 import pe.regioncusco.gob.simecr.security.api.dtos.UsuarioDto;
+import pe.regioncusco.gob.simecr.security.domain.models.Usuario;
 import pe.regioncusco.gob.simecr.security.domain.services.UsuarioService;
 
 import javax.annotation.security.RolesAllowed;
@@ -17,7 +18,6 @@ import java.util.Map;
 @RequestMapping(UsuarioController.USUARIO)
 public class UsuarioController {
     public static final String USUARIO = "/v1/usuario";
-
     private static final String ROLES = "/roles";
     private static final String CREAR = "/crear";
     private static final String BUSCAR = "/buscar/{username}";
@@ -29,7 +29,7 @@ public class UsuarioController {
     @GetMapping(ROLES)
     @ResponseStatus(HttpStatus.OK)
     @RolesAllowed(ParamsManager.ROLE_USER)
-    public ResponseEntity<?> ver(){
+    public ResponseEntity<Usuario> ver(){
         return new ResponseEntity<>(usuarioService.getPerfilUsuario(), HttpStatus.OK);
     }
 

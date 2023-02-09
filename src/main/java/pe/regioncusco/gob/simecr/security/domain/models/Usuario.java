@@ -1,11 +1,18 @@
 package pe.regioncusco.gob.simecr.security.domain.models;
 
+import pe.regioncusco.gob.simecr.commons.MyValueString;
+import pe.regioncusco.gob.simecr.modules.configuracion.domain.models.UnidadEjecutoria;
+
+import java.util.List;
+
 public class Usuario {
     private String usuario;
     private String nombres;
     private String nombresCompleto;
     private String cargo;
     private String role;
+    private Integer anio;
+    private List<UnidadEjecutoria> unidadEjecutorias;
 
     public Usuario() {
     }
@@ -49,4 +56,21 @@ public class Usuario {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public Integer getAnio() {
+        return anio;
+    }
+
+    public void setAnio(Integer anio) {
+        this.anio = anio;
+    }
+
+    public List<UnidadEjecutoria> getUnidadEjecutorias() {
+        return unidadEjecutorias;
+    }
+
+    public void setUnidadEjecutorias(List<UnidadEjecutoria> unidadEjecutorias) {
+        this.unidadEjecutorias = unidadEjecutorias;
+    }
+
 }

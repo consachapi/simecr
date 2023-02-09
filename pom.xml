@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>pe.regioncusco.gob</groupId>
 	<artifactId>simecr</artifactId>
-	<version>1.4.0</version>
+	<version>1.5.0</version>
 	<name>simecr</name>
 	<description>Sistema de medidas de control y remediacion</description>
 	<properties>

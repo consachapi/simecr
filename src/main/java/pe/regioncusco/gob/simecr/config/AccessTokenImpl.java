@@ -47,13 +47,22 @@ public class AccessTokenImpl {
         return false;
     }
 
+    public String getEjecCodigo(){
+        accessToken();
+        if(accessToken.getOtherClaims().isEmpty()){
+            return "000";
+        }
+        return (String) accessToken.getOtherClaims().get("ejecutora");
+    }
+
+    public String getPrincipal(){
+        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+    }
+
     private void accessToken(){
         KeycloakAuthenticationToken authentication = (KeycloakAuthenticationToken) SecurityContextHolder.getContext().getAuthentication();
         this.accessToken = authentication.getAccount().getKeycloakSecurityContext().getToken();
         this.principal = (Principal) authentication.getPrincipal();
     }
 
-    public String getPrincipal(){
-        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
-    }
 }

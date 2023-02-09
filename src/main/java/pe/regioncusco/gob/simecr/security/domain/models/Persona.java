@@ -12,6 +12,7 @@ public class Persona {
     private String email;
     private String direccion;
     private Perfil perfil;
+    private String unidadEjecutora;
     private boolean active;
 
     public String getNdocumento() {
@@ -84,6 +85,14 @@ public class Persona {
 
     public void setPerfil(Perfil perfil) {
         this.perfil = perfil;
+    }
+
+    public String getUnidadEjecutora() {
+        return unidadEjecutora;
+    }
+
+    public void setUnidadEjecutora(String unidadEjecutora) {
+        this.unidadEjecutora = unidadEjecutora;
     }
 
     public boolean isActive() {

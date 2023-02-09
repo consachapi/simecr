@@ -11,7 +11,7 @@ import java.util.Map;
 public interface UsuarioService {
     Usuario getPerfilUsuario();
     UserDto create(UsuarioDto usuario);
-    List<UserRepresentation> findByUsername(String username);
+    UserRepresentation findByUsername(String username);
     UserDto reset(String usuario, Map<String, Object> password);
     void setEnabled(String username, boolean enabled);
     void setEnabledAndPerfil(String username, boolean enabled, String perfil);

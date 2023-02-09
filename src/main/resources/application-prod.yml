@@ -1,0 +1,58 @@
+server:
+  port: 7012
+  address: 10.0.9.11
+spring:
+  application:
+    name: ms-simecr
+  datasource:
+    url: jdbc:postgresql://10.0.9.11:5432/db_simecr
+    username: postgres
+    password: RegionCusco@2018
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+  servlet:
+    multipart:
+      max-file-size: 15MB
+      max-request-size: 15MB
+  sql:
+    init:
+      mode: always
+keycloak:
+  realm: sipac
+  bearer-only: true
+  use-resource-role-mappings: true
+  auth-server-url: http://oauth.regioncusco.gob.pe/auth
+  resource: simecr-backend
+  credentials:
+    secret: 28765a50-ebe9-4a89-936a-f9fc128b89dc
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ms-simecr
+  client:
+    service-url:
+      defaultZone: http://10.0.9.11:91/eureka
+cloud:
+  aws:
+    region:
+      static: us-east-1
+    stack:
+      auto: false
+    credentials:
+      access-key: NOGZ3QDD9D7D3Q951X1E
+      secret-key: MBWLAtC4MyOPeV4x9eGBgF8TLCvhoK16r4gPRo1x
+    s3:
+      endpoint: ewr1.vultrobjects.com
+    sqs:
+      endpoint: ewr1.vultrobjects.com
+    rds:
+      endpoint: ewr1.vultrobjects.com
+service:
+  persona:
+    url: http://10.0.9.11:7005
+periodo: 2022
+pia: 314543498.00

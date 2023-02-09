@@ -12,12 +12,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.regioncusco.gob.simecr.commons.MyValueString;
 import pe.regioncusco.gob.simecr.commons.ParamsManager;
 import pe.regioncusco.gob.simecr.config.AccessTokenImpl;
 import pe.regioncusco.gob.simecr.config.UtilConfig;
 import pe.regioncusco.gob.simecr.exceptions.BadRequestException;
 import pe.regioncusco.gob.simecr.exceptions.ConflictException;
 import pe.regioncusco.gob.simecr.exceptions.NotFoundException;
+import pe.regioncusco.gob.simecr.modules.configuracion.domain.models.UnidadEjecutoria;
+import pe.regioncusco.gob.simecr.modules.configuracion.domain.services.UnidadEjecutoraService;
 import pe.regioncusco.gob.simecr.security.api.dtos.UserDto;
 import pe.regioncusco.gob.simecr.security.api.dtos.UsuarioDto;
 import pe.regioncusco.gob.simecr.security.domain.models.Persona;
@@ -31,37 +34,75 @@ import java.util.*;
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
     private static final Logger LOG = LoggerFactory.getLogger(UsuarioServiceImpl.class);
+    private static final String ADMIN_CARGO = "Administrador del Sistema";
 
     @Autowired private AccessTokenImpl accessToken;
     @Autowired private UtilConfig config;
     @Autowired private PersonaService personaService;
+    @Autowired private UnidadEjecutoraService unidadEjecutoraService;
 
     @Override
     public Usuario getPerfilUsuario() {
         if(accessToken.isAnonymous()){
             throw new NotFoundException("Usuario no existe");
         }
-        Persona persona = personaService.findById(accessToken.getUserId());
+        String username = accessToken.getUserId();
+        Persona persona = personaService.findById(username);
         Set<String> roles = accessToken.getUserRole();
         if(roles.isEmpty()){
             LOG.warn("Usuario {} sin rol.", accessToken.getUserId());
             throw new NotFoundException("Usuario no tiene rol.");
         }
 
+        List<UnidadEjecutoria> unidadEjecutorias = new ArrayList<>();
+        if(accessToken.getEjecCodigo().equals("000")){
+            unidadEjecutorias = unidadEjecutoraService.findAllActive();
+        } else {
+            unidadEjecutorias.add(unidadEjecutoraService.findUnidadEjecutoraById(accessToken.getEjecCodigo()));
+        }
+
         Usuario usuario = new Usuario();
-        usuario.setUsuario(accessToken.getUserId());
+        if(username.equals("admin")){
+            UserRepresentation userRepresentation = findByUsername(username);
+            usuario.setUsuario(username);
+            usuario.setNombres(userRepresentation.getFirstName());
+            usuario.setNombresCompleto(userRepresentation.getFirstName() + " del " + userRepresentation.getLastName());
+            usuario.setCargo(ADMIN_CARGO);
+            usuario.setRole("SUPER");
+            usuario.setUnidadEjecutorias(unidadEjecutorias);
+            usuario.setAnio(2023);
+            return usuario;
+        }
+
+        usuario.setUsuario(username);
         usuario.setNombres(persona.getNombres());
         usuario.setNombresCompleto(persona.getNombres() + " " + persona.getApellidos());
         usuario.setCargo(persona.getCargo().getDescripcion());
+        usuario.setUnidadEjecutorias(unidadEjecutorias);
 
         if(roles.contains(ParamsManager.REALM_ADMIN)){
             usuario.setRole("ADMIN");
             return usuario;
         }
 
+        if(roles.contains(ParamsManager.REALM_RESP)){
+            usuario.setRole("RESP");
+            return usuario;
+        }
+
         usuario.setRole("USER");
         return usuario;
     }
+
+
+
+
+
+
+
+
+
+
 
     @Override
     public UserDto create(UsuarioDto usuario) {
@@ -105,13 +146,27 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     @Override
+    public UserRepresentation findByUsername(String username) {
+        Keycloak keycloak = config.keycloak();
+        Optional<UserRepresentation> user = keycloak.realm(ParamsManager.REALM)
+                .users()
+                .search(username)
+                .stream().filter(u -> u.getUsername().equals(username)).findFirst();
+        if(!user.isPresent()){
+            throw new NotFoundException("Usuario " + username + ", no existe.");
+        }
+        return user.get();
+    }
+
+    /*
+    @Override
     public List<UserRepresentation> findByUsername(String username) {
         Persona persona = personaService.findById(username);
         Keycloak keycloak = config.keycloak();
         List<UserRepresentation> users = keycloak.realm(ParamsManager.REALM).users().search(persona.getNdocumento());
         return users;
     }
-
+*/
     @Override
     public UserDto reset(String usuario, Map<String, Object> password) {
         Keycloak keycloak = config.keycloak();
@@ -217,8 +272,8 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     private UserResource getUserResource(String username){
-        List<UserRepresentation> users = findByUsername(username);
-        String id = users.get(0).getId();
+        UserRepresentation users = findByUsername(username);
+        String id = users.getId();
         LOG.info("Usuario ID {}", id);
         Keycloak keycloak = config.keycloak();
         RealmResource realmResource = keycloak.realm(ParamsManager.REALM);
