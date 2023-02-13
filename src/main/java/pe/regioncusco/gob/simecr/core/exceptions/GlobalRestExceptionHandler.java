@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.exceptions;
+package pe.regioncusco.gob.simecr.core.exceptions;
 
 import feign.FeignException;
 import org.slf4j.Logger;
@@ -10,6 +10,7 @@ import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.WebExchangeBindException;
 import pe.regioncusco.gob.simecr.core.common.ErrorMessage;
@@ -23,7 +24,6 @@ public class GlobalRestExceptionHandler {
 
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler({
-            //AccessDeniedException.class,
             HeaderFilterException.class
     })
     @ResponseBody
@@ -127,7 +127,8 @@ public class GlobalRestExceptionHandler {
             WebExchangeBindException.class,
             HttpMessageNotReadableException.class,
             HttpRequestMethodNotSupportedException.class,
-            MethodArgumentNotValidException.class
+            MethodArgumentNotValidException.class,
+            MissingServletRequestParameterException.class
     })
     @ResponseBody
     public ResponseEntity<ErrorMessage> badRequest(Exception ex, HttpServletRequest request){

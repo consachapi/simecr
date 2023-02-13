@@ -1,8 +1,8 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.services;
+package pe.regioncusco.gob.simecr.application.control.domain.services;
 
+import pe.regioncusco.gob.simecr.application.control.domain.models.Riesgo;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.RiesgoDto;
 import pe.regioncusco.gob.simecr.core.common.MyValue;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.Riesgo;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.RiesgoDto;
 
 import java.util.List;
 

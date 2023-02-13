@@ -1,9 +1,9 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.services;
+package pe.regioncusco.gob.simecr.application.control.domain.services;
 
-import pe.regioncusco.gob.simecr.modules.control.domain.models.ControlVerificacion;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ControlVerificacionBodyDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ControlVerificacionDto;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Oficina;
+import pe.regioncusco.gob.simecr.application.control.domain.models.ControlVerificacion;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ControlVerificacionBodyDto;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ControlVerificacionDto;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Oficina;
 
 import java.util.List;
 

@@ -1,7 +1,6 @@
-package pe.regioncusco.gob.simecr.security.domain.models;
+package pe.regioncusco.gob.simecr.security.domains.models;
 
-import pe.regioncusco.gob.simecr.commons.MyValueString;
-import pe.regioncusco.gob.simecr.modules.configuracion.domain.models.UnidadEjecutoria;
+import pe.regioncusco.gob.simecr.application.configuracion.domain.models.UnidadEjecutoria;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.modules.reportes.domain.models;
+package pe.regioncusco.gob.simecr.application.reportes.domain.models;
 
 public class MedidasDashboard {
     private String medida;

@@ -1,7 +1,7 @@
-package pe.regioncusco.gob.simecr.security.domain.enums;
+package pe.regioncusco.gob.simecr.security.domains.enums;
 
 import org.springframework.lang.Nullable;
-import pe.regioncusco.gob.simecr.exceptions.NotFoundException;
+import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
 
 public enum PerfilEnum {
     ADMINISTRADOR(1, "ADMINISTRADOR"),

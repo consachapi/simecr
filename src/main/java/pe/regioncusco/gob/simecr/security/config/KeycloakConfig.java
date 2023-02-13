@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.config;
+package pe.regioncusco.gob.simecr.security.config;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
@@ -57,8 +57,4 @@ public class KeycloakConfig extends KeycloakWebSecurityConfigurerAdapter {
         return new HttpSessionManager();
     }
 
-    @Bean
-    public KeycloakConfigResolver keycloakConfigResolver(){
-        return new KeycloakSpringBootConfigResolver();
-    }
 }

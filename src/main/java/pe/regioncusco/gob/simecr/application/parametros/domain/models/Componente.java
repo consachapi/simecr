@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.modules.parametros.domain.models;
+package pe.regioncusco.gob.simecr.application.parametros.domain.models;
 
 public class Componente {
     private Long id;

@@ -1,18 +1,17 @@
-package pe.regioncusco.gob.simecr.modules.control.infraestructure.data.pesistences;
+package pe.regioncusco.gob.simecr.application.control.infraestructure.data.pesistences;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.RiesgoEstado;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.Producto;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.Riesgo;
-import pe.regioncusco.gob.simecr.modules.control.domain.presistences.RiesgoPersistence;
-import pe.regioncusco.gob.simecr.modules.control.infraestructure.data.commons.ProductoAdapterCommon;
-import pe.regioncusco.gob.simecr.modules.control.infraestructure.data.entities.ProductoEntity;
-import pe.regioncusco.gob.simecr.modules.control.infraestructure.data.entities.RiesgoEntity;
-import pe.regioncusco.gob.simecr.modules.control.infraestructure.data.repositorys.RiesgoEntityRepository;
+import pe.regioncusco.gob.simecr.application.control.domain.models.Producto;
+import pe.regioncusco.gob.simecr.application.control.domain.models.Riesgo;
+import pe.regioncusco.gob.simecr.application.control.infraestructure.data.repositorys.RiesgoEntityRepository;
+import pe.regioncusco.gob.simecr.application.control.domain.presistences.RiesgoPersistence;
+import pe.regioncusco.gob.simecr.application.control.infraestructure.data.commons.ProductoAdapterCommon;
+import pe.regioncusco.gob.simecr.application.control.infraestructure.data.entities.ProductoEntity;
+import pe.regioncusco.gob.simecr.application.control.infraestructure.data.entities.RiesgoEntity;
 
 import java.util.Date;
 import java.util.List;

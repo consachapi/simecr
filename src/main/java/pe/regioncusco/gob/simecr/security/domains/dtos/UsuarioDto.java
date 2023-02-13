@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.security.infraestructures.apis.dtos;
+package pe.regioncusco.gob.simecr.security.domains.dtos;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;

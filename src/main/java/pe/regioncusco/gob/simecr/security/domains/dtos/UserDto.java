@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.security.infraestructures.apis.dtos;
+package pe.regioncusco.gob.simecr.security.domains.dtos;
 
 public class UserDto {
     private String username;

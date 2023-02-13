@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.application.configuracion.domain.persistences;
+package pe.regioncusco.gob.simecr.application.configuracion.application.persistences;
 
 import pe.regioncusco.gob.simecr.application.configuracion.domain.models.UnidadEjecutoria;
 

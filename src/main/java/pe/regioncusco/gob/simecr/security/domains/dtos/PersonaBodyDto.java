@@ -1,7 +1,7 @@
-package pe.regioncusco.gob.simecr.security.infraestructures.apis.dtos;
+package pe.regioncusco.gob.simecr.security.domains.dtos;
 
-import pe.regioncusco.gob.simecr.security.domain.models.Cargo;
-import pe.regioncusco.gob.simecr.security.domain.models.Perfil;
+import pe.regioncusco.gob.simecr.security.domains.models.Cargo;
+import pe.regioncusco.gob.simecr.security.domains.models.Perfil;
 
 public class PersonaBodyDto {
     private String ndocumento;

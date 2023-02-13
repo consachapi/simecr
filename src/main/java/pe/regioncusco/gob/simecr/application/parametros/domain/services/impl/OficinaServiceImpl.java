@@ -1,15 +1,15 @@
-package pe.regioncusco.gob.simecr.modules.parametros.domain.services.impl;
+package pe.regioncusco.gob.simecr.application.parametros.domain.services.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Oficina;
+import pe.regioncusco.gob.simecr.application.parametros.domain.persistences.OficinaPersistence;
 import pe.regioncusco.gob.simecr.core.common.MyValue;
 import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.mappers.OficinaMapper;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Oficina;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.persistences.OficinaPersistence;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.services.OficinaService;
+import pe.regioncusco.gob.simecr.application.parametros.domain.mappers.OficinaMapper;
+import pe.regioncusco.gob.simecr.application.parametros.domain.services.OficinaService;
 
 import java.util.List;
 import java.util.Optional;

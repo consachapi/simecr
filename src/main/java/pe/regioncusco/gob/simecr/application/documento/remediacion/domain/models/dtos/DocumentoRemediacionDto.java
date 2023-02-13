@@ -2,7 +2,7 @@ package pe.regioncusco.gob.simecr.application.documento.remediacion.domain.model
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import pe.regioncusco.gob.simecr.application.documento.control.domain.enums.DocumentoEstado;
-import pe.regioncusco.gob.simecr.modules.remediacion.domain.models.dtos.ActividadRemediacionDto;
+import pe.regioncusco.gob.simecr.application.remediacion.domain.models.dtos.ActividadRemediacionDto;
 import pe.regioncusco.gob.simecr.security.domains.models.Persona;
 
 import javax.persistence.Temporal;

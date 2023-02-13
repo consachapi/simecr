@@ -1,6 +1,6 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.models.dtos;
+package pe.regioncusco.gob.simecr.application.control.domain.models.dtos;
 
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.ProductoEstado;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.ProductoEstado;
 
 public class ProductoDto {
     private Long id;

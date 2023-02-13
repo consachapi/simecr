@@ -1,7 +1,7 @@
-package pe.regioncusco.gob.simecr.modules.control.infraestructure.data.entities;
+package pe.regioncusco.gob.simecr.application.control.infraestructure.data.entities;
 
 import org.springframework.beans.BeanUtils;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.Producto;
+import pe.regioncusco.gob.simecr.application.control.domain.models.Producto;
 
 import javax.persistence.*;
 import java.util.Date;

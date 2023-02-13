@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.commons;
+package pe.regioncusco.gob.simecr.core.common;
 
 public class MyValue {
     private Long value;

@@ -1,9 +1,9 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.mappers;
+package pe.regioncusco.gob.simecr.application.control.domain.mappers;
 
 import org.mapstruct.Mapper;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.ActividadEstado;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.ActividadControl;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ActividadControlDto;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.ActividadEstado;
+import pe.regioncusco.gob.simecr.application.control.domain.models.ActividadControl;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ActividadControlDto;
 
 @Mapper(componentModel = "spring", uses = { ControlVerificacionMapper.class })
 public interface ActividadControlMapper {

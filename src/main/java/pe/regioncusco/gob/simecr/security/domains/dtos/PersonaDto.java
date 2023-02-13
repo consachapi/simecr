@@ -1,9 +1,9 @@
-package pe.regioncusco.gob.simecr.security.infraestructures.apis.dtos;
+package pe.regioncusco.gob.simecr.security.domains.dtos;
 
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Oficina;
-import pe.regioncusco.gob.simecr.security.domain.models.Cargo;
-import pe.regioncusco.gob.simecr.security.domain.models.Perfil;
-import pe.regioncusco.gob.simecr.security.domain.models.Persona;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Oficina;
+import pe.regioncusco.gob.simecr.security.domains.models.Cargo;
+import pe.regioncusco.gob.simecr.security.domains.models.Perfil;
+import pe.regioncusco.gob.simecr.security.domains.models.Persona;
 
 public class PersonaDto {
     private String ndocumento;

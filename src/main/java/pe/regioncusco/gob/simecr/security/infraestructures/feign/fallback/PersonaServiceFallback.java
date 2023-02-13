@@ -1,8 +1,8 @@
-package pe.regioncusco.gob.simecr.security.restfull.fallback;
+package pe.regioncusco.gob.simecr.security.infraestructures.feign.fallback;
 
-import pe.regioncusco.gob.simecr.security.restfull.PersonaFeignClient;
-import pe.regioncusco.gob.simecr.security.restfull.models.PersonaData;
-import pe.regioncusco.gob.simecr.security.restfull.models.PersonaTpl;
+import pe.regioncusco.gob.simecr.security.infraestructures.feign.PersonaFeignClient;
+import pe.regioncusco.gob.simecr.security.infraestructures.feign.models.PersonaData;
+import pe.regioncusco.gob.simecr.security.infraestructures.feign.models.PersonaTpl;
 
 import java.util.ArrayList;
 import java.util.List;

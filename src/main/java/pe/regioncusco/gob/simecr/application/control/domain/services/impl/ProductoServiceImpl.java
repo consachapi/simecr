@@ -1,20 +1,20 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.services.impl;
+package pe.regioncusco.gob.simecr.application.control.domain.services.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.ProductoEstado;
+import pe.regioncusco.gob.simecr.application.control.domain.models.Producto;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ProductoBodyDto;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ProductoDto;
+import pe.regioncusco.gob.simecr.application.control.domain.presistences.ProductoPersistence;
 import pe.regioncusco.gob.simecr.core.common.MyValue;
 import pe.regioncusco.gob.simecr.security.config.AccessTokenImpl;
 import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.ProductoEstado;
-import pe.regioncusco.gob.simecr.modules.control.domain.mappers.ProductoMapper;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.Producto;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ProductoBodyDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ProductoDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.presistences.ProductoPersistence;
-import pe.regioncusco.gob.simecr.modules.control.domain.services.ProductoService;
+import pe.regioncusco.gob.simecr.application.control.domain.mappers.ProductoMapper;
+import pe.regioncusco.gob.simecr.application.control.domain.services.ProductoService;
 
 import java.util.List;
 import java.util.Optional;

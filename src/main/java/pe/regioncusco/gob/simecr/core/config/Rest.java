@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.config;
+package pe.regioncusco.gob.simecr.core.config;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;

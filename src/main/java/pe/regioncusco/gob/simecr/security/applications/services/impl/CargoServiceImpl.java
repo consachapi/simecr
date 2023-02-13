@@ -1,16 +1,16 @@
-package pe.regioncusco.gob.simecr.security.domain.services.impl;
+package pe.regioncusco.gob.simecr.security.applications.services.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.regioncusco.gob.simecr.commons.MyValue;
-import pe.regioncusco.gob.simecr.exceptions.NotFoundException;
+import pe.regioncusco.gob.simecr.core.common.MyValue;
+import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
 import pe.regioncusco.gob.simecr.security.infraestructures.database.entities.CargoEntity;
 import pe.regioncusco.gob.simecr.security.infraestructures.database.respositorys.CargoEntityRepository;
 import pe.regioncusco.gob.simecr.security.domains.mappers.CargoMapper;
 import pe.regioncusco.gob.simecr.security.domains.models.Cargo;
-import pe.regioncusco.gob.simecr.security.domain.services.CargoService;
+import pe.regioncusco.gob.simecr.security.applications.services.CargoService;
 
 import java.util.List;
 import java.util.Optional;

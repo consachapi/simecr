@@ -1,8 +1,8 @@
-package pe.regioncusco.gob.simecr.modules.configuracion.infraestructure.data.respositorys;
+package pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.respositorys;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import pe.regioncusco.gob.simecr.modules.configuracion.infraestructure.data.entities.UnidadEjecutoriaEntity;
+import pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.entities.UnidadEjecutoriaEntity;
 
 import java.util.List;
 

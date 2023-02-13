@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.commons;
+package pe.regioncusco.gob.simecr.core.common;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

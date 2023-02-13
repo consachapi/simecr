@@ -1,22 +1,22 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.services.impl;
+package pe.regioncusco.gob.simecr.application.control.domain.services.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.ControlVerificacionEstado;
+import pe.regioncusco.gob.simecr.application.control.domain.models.ControlVerificacion;
+import pe.regioncusco.gob.simecr.application.control.domain.models.MedidasControl;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ControlVerificacionBodyDto;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ControlVerificacionDto;
+import pe.regioncusco.gob.simecr.application.control.domain.presistences.ControlVerificacionPersistence;
 import pe.regioncusco.gob.simecr.security.config.AccessTokenImpl;
 import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.ControlVerificacionEstado;
-import pe.regioncusco.gob.simecr.modules.control.domain.mappers.ControlVerificacionMapper;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.ControlVerificacion;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.MedidasControl;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ControlVerificacionBodyDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ControlVerificacionDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.presistences.ControlVerificacionPersistence;
-import pe.regioncusco.gob.simecr.modules.control.domain.services.ControlVerificacionService;
-import pe.regioncusco.gob.simecr.modules.control.domain.services.MedidasControlService;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Oficina;
+import pe.regioncusco.gob.simecr.application.control.domain.mappers.ControlVerificacionMapper;
+import pe.regioncusco.gob.simecr.application.control.domain.services.ControlVerificacionService;
+import pe.regioncusco.gob.simecr.application.control.domain.services.MedidasControlService;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Oficina;
 import pe.regioncusco.gob.simecr.security.domains.models.Persona;
 import pe.regioncusco.gob.simecr.security.applications.services.PersonaService;
 

@@ -1,20 +1,20 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.services.impl;
+package pe.regioncusco.gob.simecr.application.control.domain.services.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.MedidasControlEstado;
+import pe.regioncusco.gob.simecr.application.control.domain.models.MedidasControl;
+import pe.regioncusco.gob.simecr.application.control.domain.models.Riesgo;
+import pe.regioncusco.gob.simecr.application.control.domain.presistences.MedidasControlPersistence;
 import pe.regioncusco.gob.simecr.security.config.AccessTokenImpl;
 import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.MedidasControlEstado;
-import pe.regioncusco.gob.simecr.modules.control.domain.mappers.MedidasControlMapper;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.MedidasControl;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.Riesgo;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.MedidasControlDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.presistences.MedidasControlPersistence;
-import pe.regioncusco.gob.simecr.modules.control.domain.services.MedidasControlService;
-import pe.regioncusco.gob.simecr.modules.control.domain.services.RiesgoService;
+import pe.regioncusco.gob.simecr.application.control.domain.mappers.MedidasControlMapper;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.MedidasControlDto;
+import pe.regioncusco.gob.simecr.application.control.domain.services.MedidasControlService;
+import pe.regioncusco.gob.simecr.application.control.domain.services.RiesgoService;
 
 import java.util.List;
 import java.util.Optional;

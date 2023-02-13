@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.models;
+package pe.regioncusco.gob.simecr.application.control.domain.models;
 
 public class Riesgo {
     private Long id;

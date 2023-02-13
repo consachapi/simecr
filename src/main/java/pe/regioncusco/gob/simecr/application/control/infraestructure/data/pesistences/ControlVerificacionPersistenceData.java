@@ -1,21 +1,20 @@
-package pe.regioncusco.gob.simecr.modules.control.infraestructure.data.pesistences;
+package pe.regioncusco.gob.simecr.application.control.infraestructure.data.pesistences;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.ControlVerificacion;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.MedidasControl;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.MedidasControlDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.presistences.ControlVerificacionPersistence;
-import pe.regioncusco.gob.simecr.modules.control.infraestructure.data.commons.MedidaControlAdapterCommon;
-import pe.regioncusco.gob.simecr.modules.control.infraestructure.data.entities.ControlVerificacionEntity;
-import pe.regioncusco.gob.simecr.modules.control.infraestructure.data.entities.MedidasControlEntity;
-import pe.regioncusco.gob.simecr.modules.control.infraestructure.data.repositorys.ControlVerificacionEntityRepository;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Oficina;
-import pe.regioncusco.gob.simecr.modules.parametros.infraestructure.data.commons.OficinaCommon;
-import pe.regioncusco.gob.simecr.modules.parametros.infraestructure.data.entities.OficinaEntity;
+import pe.regioncusco.gob.simecr.application.control.domain.models.ControlVerificacion;
+import pe.regioncusco.gob.simecr.application.control.domain.models.MedidasControl;
+import pe.regioncusco.gob.simecr.application.control.infraestructure.data.repositorys.ControlVerificacionEntityRepository;
+import pe.regioncusco.gob.simecr.application.control.domain.presistences.ControlVerificacionPersistence;
+import pe.regioncusco.gob.simecr.application.control.infraestructure.data.commons.MedidaControlAdapterCommon;
+import pe.regioncusco.gob.simecr.application.control.infraestructure.data.entities.ControlVerificacionEntity;
+import pe.regioncusco.gob.simecr.application.control.infraestructure.data.entities.MedidasControlEntity;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Oficina;
+import pe.regioncusco.gob.simecr.application.parametros.infraestructure.data.commons.OficinaCommon;
+import pe.regioncusco.gob.simecr.application.parametros.infraestructure.data.entities.OficinaEntity;
 
 import java.util.Date;
 import java.util.List;

@@ -17,8 +17,8 @@ import pe.regioncusco.gob.simecr.application.documento.remediacion.domain.mapper
 import pe.regioncusco.gob.simecr.application.documento.remediacion.domain.models.DocumentoRemediacion;
 import pe.regioncusco.gob.simecr.application.documento.remediacion.domain.models.dtos.DocumentoRemediacionDto;
 import pe.regioncusco.gob.simecr.application.documento.remediacion.domain.services.DocumentoRemediacionService;
-import pe.regioncusco.gob.simecr.modules.remediacion.domain.models.ActividadRemediacion;
-import pe.regioncusco.gob.simecr.modules.remediacion.domain.services.ActividadRemediacionService;
+import pe.regioncusco.gob.simecr.application.remediacion.domain.models.ActividadRemediacion;
+import pe.regioncusco.gob.simecr.application.remediacion.domain.services.ActividadRemediacionService;
 import pe.regioncusco.gob.simecr.s3.S3Service;
 import pe.regioncusco.gob.simecr.s3.model.Asset;
 import pe.regioncusco.gob.simecr.security.domains.models.Persona;

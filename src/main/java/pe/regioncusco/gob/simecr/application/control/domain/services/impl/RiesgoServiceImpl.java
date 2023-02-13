@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.services.impl;
+package pe.regioncusco.gob.simecr.application.control.domain.services.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -6,17 +6,17 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.RiesgoEstado;
+import pe.regioncusco.gob.simecr.application.control.domain.models.Producto;
+import pe.regioncusco.gob.simecr.application.control.domain.models.Riesgo;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.RiesgoDto;
 import pe.regioncusco.gob.simecr.core.common.MyValue;
 import pe.regioncusco.gob.simecr.security.config.AccessTokenImpl;
 import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.RiesgoEstado;
-import pe.regioncusco.gob.simecr.modules.control.domain.mappers.RiesgoMapper;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.Producto;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.Riesgo;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.RiesgoDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.presistences.RiesgoPersistence;
-import pe.regioncusco.gob.simecr.modules.control.domain.services.ProductoService;
-import pe.regioncusco.gob.simecr.modules.control.domain.services.RiesgoService;
+import pe.regioncusco.gob.simecr.application.control.domain.mappers.RiesgoMapper;
+import pe.regioncusco.gob.simecr.application.control.domain.presistences.RiesgoPersistence;
+import pe.regioncusco.gob.simecr.application.control.domain.services.ProductoService;
+import pe.regioncusco.gob.simecr.application.control.domain.services.RiesgoService;
 
 import java.util.List;
 import java.util.Optional;

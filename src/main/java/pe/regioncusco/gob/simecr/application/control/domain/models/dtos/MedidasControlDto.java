@@ -1,6 +1,6 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.models.dtos;
+package pe.regioncusco.gob.simecr.application.control.domain.models.dtos;
 
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.MedidasControlEstado;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.MedidasControlEstado;
 
 public class MedidasControlDto {
     private Long id;

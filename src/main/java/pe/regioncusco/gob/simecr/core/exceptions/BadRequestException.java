@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.exceptions;
+package pe.regioncusco.gob.simecr.core.exceptions;
 
 public class BadRequestException extends RuntimeException {
     private static final String DESCRIPTION = "Bad Request Exception";

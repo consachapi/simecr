@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.application.configuracion.domain.services;
+package pe.regioncusco.gob.simecr.application.configuracion.application.services;
 
 import pe.regioncusco.gob.simecr.core.common.MyValueString;
 import pe.regioncusco.gob.simecr.application.configuracion.domain.models.UnidadEjecutoria;

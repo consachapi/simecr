@@ -1,7 +1,7 @@
-package pe.regioncusco.gob.simecr.modules.parametros.infraestructure.data.commons;
+package pe.regioncusco.gob.simecr.application.parametros.infraestructure.data.commons;
 
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Oficina;
-import pe.regioncusco.gob.simecr.modules.parametros.infraestructure.data.entities.OficinaEntity;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Oficina;
+import pe.regioncusco.gob.simecr.application.parametros.infraestructure.data.entities.OficinaEntity;
 
 public final class OficinaCommon {
     public static OficinaEntity toOficinaEntity(Oficina oficina){

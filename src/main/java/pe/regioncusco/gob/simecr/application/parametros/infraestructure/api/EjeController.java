@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.modules.parametros.infraestructure.api;
+package pe.regioncusco.gob.simecr.application.parametros.infraestructure.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,7 +9,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import pe.regioncusco.gob.simecr.core.common.MyValue;
 import pe.regioncusco.gob.simecr.core.common.ParamsManager;
 import pe.regioncusco.gob.simecr.core.config.Rest;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.services.EjeService;
+import pe.regioncusco.gob.simecr.application.parametros.domain.services.EjeService;
+import pe.regioncusco.gob.simecr.security.common.ParamsSecurity;
 
 import javax.annotation.security.RolesAllowed;
 import java.util.List;
@@ -25,7 +26,7 @@ public class EjeController {
 
     @GetMapping(SELECCIONAR)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<List<MyValue>> findAllSelection(){
         return new ResponseEntity<>(ejeService.findAllSelection(), HttpStatus.OK);
     }

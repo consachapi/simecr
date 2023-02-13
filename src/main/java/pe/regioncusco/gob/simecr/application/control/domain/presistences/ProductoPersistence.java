@@ -1,6 +1,6 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.presistences;
+package pe.regioncusco.gob.simecr.application.control.domain.presistences;
 
-import pe.regioncusco.gob.simecr.modules.control.domain.models.Producto;
+import pe.regioncusco.gob.simecr.application.control.domain.models.Producto;
 
 import java.util.List;
 import java.util.Optional;

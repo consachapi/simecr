@@ -1,12 +1,11 @@
-package pe.regioncusco.gob.simecr.config;
+package pe.regioncusco.gob.simecr.security.config;
 
 import org.keycloak.OAuth2Constants;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.KeycloakBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import pe.regioncusco.gob.simecr.commons.ParamsManager;
+import pe.regioncusco.gob.simecr.security.common.ParamsSecurity;
 
 @Component
 public class UtilConfig {
@@ -16,11 +15,11 @@ public class UtilConfig {
     public Keycloak keycloak(){
         Keycloak keycloak = KeycloakBuilder.builder()
                 .serverUrl(authServer)
-                .realm(ParamsManager.REALM_MASTER)
+                .realm(ParamsSecurity.REALM_MASTER)
                 .grantType(OAuth2Constants.PASSWORD)
-                .clientId(ParamsManager.CLIENT_ID)
-                .username(ParamsManager.USERNAME)
-                .password(ParamsManager.PASSWORD)
+                .clientId(ParamsSecurity.CLIENT_ID)
+                .username(ParamsSecurity.USERNAME)
+                .password(ParamsSecurity.PASSWORD)
                 .build();
         return keycloak;
     }

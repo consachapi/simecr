@@ -1,11 +1,11 @@
-package pe.regioncusco.gob.simecr.security.restfull.config;
+package pe.regioncusco.gob.simecr.security.infraestructures.feign.config;
 
 import feign.Response;
 import feign.codec.ErrorDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pe.regioncusco.gob.simecr.exceptions.BadRequestException;
-import pe.regioncusco.gob.simecr.exceptions.NotFoundException;
+import pe.regioncusco.gob.simecr.core.exceptions.BadRequestException;
+import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
 
 public class CustomErrorDecoder implements ErrorDecoder {
     private static final Logger LOG = LoggerFactory.getLogger(CustomErrorDecoder.class);

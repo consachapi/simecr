@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.security.domain.models;
+package pe.regioncusco.gob.simecr.security.domains.models;
 
 public class Cargo {
     private Long id;

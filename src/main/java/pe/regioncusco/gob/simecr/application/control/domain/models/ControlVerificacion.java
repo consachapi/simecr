@@ -1,6 +1,6 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.models;
+package pe.regioncusco.gob.simecr.application.control.domain.models;
 
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Oficina;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Oficina;
 
 import java.util.Date;
 import java.util.List;

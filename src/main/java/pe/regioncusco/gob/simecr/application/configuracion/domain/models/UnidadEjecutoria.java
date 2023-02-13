@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.modules.configuracion.domain.models;
+package pe.regioncusco.gob.simecr.application.configuracion.domain.models;
 
 public class UnidadEjecutoria {
     private String codigo;

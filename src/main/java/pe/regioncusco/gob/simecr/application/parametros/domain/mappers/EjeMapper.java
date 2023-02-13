@@ -1,9 +1,9 @@
-package pe.regioncusco.gob.simecr.modules.parametros.domain.mappers;
+package pe.regioncusco.gob.simecr.application.parametros.domain.mappers;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Eje;
 import pe.regioncusco.gob.simecr.core.common.MyValue;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Eje;
 
 @Mapper(componentModel = "spring")
 public interface EjeMapper {

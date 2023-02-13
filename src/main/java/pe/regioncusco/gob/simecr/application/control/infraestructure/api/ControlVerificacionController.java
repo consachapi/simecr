@@ -1,15 +1,16 @@
-package pe.regioncusco.gob.simecr.modules.control.infraestructure.api;
+package pe.regioncusco.gob.simecr.application.control.infraestructure.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ControlVerificacionBodyDto;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ControlVerificacionDto;
 import pe.regioncusco.gob.simecr.core.common.ParamsManager;
 import pe.regioncusco.gob.simecr.core.config.Rest;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ControlVerificacionBodyDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ControlVerificacionDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.services.ControlVerificacionService;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Oficina;
+import pe.regioncusco.gob.simecr.application.control.domain.services.ControlVerificacionService;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Oficina;
+import pe.regioncusco.gob.simecr.security.common.ParamsSecurity;
 
 import javax.annotation.security.RolesAllowed;
 import java.util.List;
@@ -33,49 +34,49 @@ public class ControlVerificacionController {
 
     @GetMapping(LISTAR)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<List<ControlVerificacionDto>> findAll(){
         return new ResponseEntity<>(controlVerificacionService.findAll(), HttpStatus.OK);
     }
 
     @PostMapping(CREAR)
     @ResponseStatus(HttpStatus.CREATED)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<ControlVerificacionDto> save(@RequestBody ControlVerificacionBodyDto controlVerificacionBodyDto){
         return new ResponseEntity<>(controlVerificacionService.save(controlVerificacionBodyDto), HttpStatus.CREATED);
     }
 
     @GetMapping(LISTAR_MCONTROL)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<List<ControlVerificacionDto>> findAllByMedidaControl(@PathVariable Long id){
         return new ResponseEntity<>(controlVerificacionService.findAllByMedidaControl(id), HttpStatus.OK);
     }
 
     @PostMapping(ASIGNAR_RESPONSABLE)
     @ResponseStatus(HttpStatus.CREATED)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<List<Oficina>> set(@PathVariable Long id, @RequestBody List<Oficina> oficina){
         return new ResponseEntity<>(controlVerificacionService.setResponsableOficina(id, oficina), HttpStatus.CREATED);
     }
 
     @GetMapping(LISTAR_POR_USUARIO)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_USER)
+    @RolesAllowed(ParamsSecurity.ROLE_USER)
     public ResponseEntity<List<ControlVerificacionDto>> findAllByUsuario(){
         return new ResponseEntity<>(controlVerificacionService.findAllByUsuario(), HttpStatus.OK);
     }
 
     @GetMapping(MOSTRAR)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_USER)
+    @RolesAllowed(ParamsSecurity.ROLE_USER)
     public ResponseEntity<ControlVerificacionDto> findById(@PathVariable Long id){
         return new ResponseEntity<>(controlVerificacionService.find(id), HttpStatus.OK);
     }
 
     @PutMapping(CAMBIAR_ESTADO)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<ControlVerificacionDto> cambiarEstado(@PathVariable Long id) {
         return new ResponseEntity(this.controlVerificacionService.cambiarEstado(id), HttpStatus.OK);
     }

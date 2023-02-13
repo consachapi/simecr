@@ -1,6 +1,6 @@
-package pe.regioncusco.gob.simecr.security.domain.models;
+package pe.regioncusco.gob.simecr.security.domains.models;
 
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Oficina;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Oficina;
 
 public class Persona {
     private String ndocumento;

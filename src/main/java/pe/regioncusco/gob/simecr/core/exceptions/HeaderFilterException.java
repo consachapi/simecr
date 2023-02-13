@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.exceptions;
+package pe.regioncusco.gob.simecr.core.exceptions;
 
 public class HeaderFilterException extends RuntimeException {
     public HeaderFilterException(String message){

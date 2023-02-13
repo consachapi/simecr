@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.security.restfull.config;
+package pe.regioncusco.gob.simecr.security.infraestructures.feign.config;
 
 import feign.codec.ErrorDecoder;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.security.domain.services;
+package pe.regioncusco.gob.simecr.security.applications.services;
 
 import org.springframework.data.domain.Page;
 import pe.regioncusco.gob.simecr.security.domains.dtos.PersonaBodyDto;

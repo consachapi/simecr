@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.security.domain.services;
+package pe.regioncusco.gob.simecr.security.applications.services;
 
 import org.keycloak.representations.idm.UserRepresentation;
 import pe.regioncusco.gob.simecr.security.domains.dtos.UserDto;
@@ -10,6 +10,9 @@ import java.util.Map;
 public interface UsuarioService {
     Usuario getPerfilUsuario();
     void logout(String session);
+
+
+
     UserDto create(UsuarioDto usuario);
     UserRepresentation findByUsername(String username);
     UserDto reset(String usuario, Map<String, Object> password);

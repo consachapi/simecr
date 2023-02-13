@@ -1,16 +1,16 @@
-package pe.regioncusco.gob.simecr.security.domain.services.impl;
+package pe.regioncusco.gob.simecr.security.applications.services.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.regioncusco.gob.simecr.commons.MyValue;
-import pe.regioncusco.gob.simecr.exceptions.NotFoundException;
+import pe.regioncusco.gob.simecr.core.common.MyValue;
+import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
 import pe.regioncusco.gob.simecr.security.infraestructures.database.entities.PerfilEntity;
 import pe.regioncusco.gob.simecr.security.infraestructures.database.respositorys.PerfilEntityRepository;
 import pe.regioncusco.gob.simecr.security.domains.mappers.PerfilMapper;
 import pe.regioncusco.gob.simecr.security.domains.models.Perfil;
-import pe.regioncusco.gob.simecr.security.domain.services.PerfilService;
+import pe.regioncusco.gob.simecr.security.applications.services.PerfilService;
 
 import java.util.List;
 import java.util.Optional;

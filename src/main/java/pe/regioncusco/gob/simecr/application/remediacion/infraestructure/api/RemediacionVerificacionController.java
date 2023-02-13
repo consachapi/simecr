@@ -10,6 +10,7 @@ import pe.regioncusco.gob.simecr.application.parametros.domain.models.Oficina;
 import pe.regioncusco.gob.simecr.application.remediacion.domain.models.dtos.RemediacionVerificacionBodyDto;
 import pe.regioncusco.gob.simecr.application.remediacion.domain.models.dtos.RemediacionVerificacionDto;
 import pe.regioncusco.gob.simecr.application.remediacion.domain.services.RemediacionVerificacionService;
+import pe.regioncusco.gob.simecr.security.common.ParamsSecurity;
 
 import javax.annotation.security.RolesAllowed;
 import java.util.List;
@@ -31,49 +32,49 @@ public class RemediacionVerificacionController {
 
     @GetMapping(LISTAR)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<List<RemediacionVerificacionDto>> findAll(){
         return new ResponseEntity<>(remediacionVerificacionService.findAll(), HttpStatus.OK);
     }
 
     @PostMapping(CREAR)
     @ResponseStatus(HttpStatus.CREATED)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<RemediacionVerificacionDto> save(@RequestBody RemediacionVerificacionBodyDto remediacionVerificacionBodyDto){
         return new ResponseEntity<>(remediacionVerificacionService.save(remediacionVerificacionBodyDto), HttpStatus.CREATED);
     }
 
     @GetMapping(LISTAR_MCONTROL)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<List<RemediacionVerificacionDto>> findAllByMedidaRemediacion(@PathVariable Long id){
         return new ResponseEntity<>(remediacionVerificacionService.findAllByMedidaRemediacion(id), HttpStatus.OK);
     }
 
     @PostMapping(ASIGNAR_RESPONSABLE)
     @ResponseStatus(HttpStatus.CREATED)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<List<Oficina>> set(@PathVariable Long id, @RequestBody List<Oficina> oficina){
         return new ResponseEntity<>(remediacionVerificacionService.setResponsableOficina(id, oficina), HttpStatus.CREATED);
     }
 
     @GetMapping(MOSTRAR)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_USER)
+    @RolesAllowed(ParamsSecurity.ROLE_USER)
     public ResponseEntity<RemediacionVerificacionDto> findById(@PathVariable Long id){
         return new ResponseEntity<>(remediacionVerificacionService.find(id), HttpStatus.OK);
     }
 
     @GetMapping(LISTAR_POR_USUARIO)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_USER)
+    @RolesAllowed(ParamsSecurity.ROLE_USER)
     public ResponseEntity<List<RemediacionVerificacionDto>> findAllByUsuario(){
         return new ResponseEntity<>(remediacionVerificacionService.findAllByUsuario(), HttpStatus.OK);
     }
 
     @PutMapping(CAMBIAR_ESTADO)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<RemediacionVerificacionDto> cambiarEstado(@PathVariable Long id) {
         return new ResponseEntity(this.remediacionVerificacionService.cambiarEstado(id), HttpStatus.OK);
     }

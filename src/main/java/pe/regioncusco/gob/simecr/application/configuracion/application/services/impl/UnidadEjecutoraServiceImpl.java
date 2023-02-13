@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.application.configuracion.domain.services.impl;
+package pe.regioncusco.gob.simecr.application.configuracion.application.services.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import pe.regioncusco.gob.simecr.core.common.MyValueString;
 import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
 import pe.regioncusco.gob.simecr.application.configuracion.domain.models.UnidadEjecutoria;
-import pe.regioncusco.gob.simecr.application.configuracion.domain.persistences.UnidadEjecutoraPersistence;
-import pe.regioncusco.gob.simecr.application.configuracion.domain.services.UnidadEjecutoraService;
+import pe.regioncusco.gob.simecr.application.configuracion.application.persistences.UnidadEjecutoraPersistence;
+import pe.regioncusco.gob.simecr.application.configuracion.application.services.UnidadEjecutoraService;
 
 import java.util.ArrayList;
 import java.util.List;

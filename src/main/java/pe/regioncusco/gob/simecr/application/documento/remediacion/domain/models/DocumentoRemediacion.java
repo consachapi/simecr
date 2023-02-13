@@ -1,6 +1,6 @@
 package pe.regioncusco.gob.simecr.application.documento.remediacion.domain.models;
 
-import pe.regioncusco.gob.simecr.modules.remediacion.domain.models.ActividadRemediacion;
+import pe.regioncusco.gob.simecr.application.remediacion.domain.models.ActividadRemediacion;
 import pe.regioncusco.gob.simecr.security.domains.models.Persona;
 
 import java.util.Date;

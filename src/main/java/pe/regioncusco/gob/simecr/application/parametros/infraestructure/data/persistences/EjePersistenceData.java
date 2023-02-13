@@ -1,13 +1,13 @@
-package pe.regioncusco.gob.simecr.modules.parametros.infraestructure.data.persistences;
+package pe.regioncusco.gob.simecr.application.parametros.infraestructure.data.persistences;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Eje;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.persistences.EjePersistence;
-import pe.regioncusco.gob.simecr.modules.parametros.infraestructure.data.entities.EjeEntity;
-import pe.regioncusco.gob.simecr.modules.parametros.infraestructure.data.repositorys.EjeEntityRepository;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Eje;
+import pe.regioncusco.gob.simecr.application.parametros.domain.persistences.EjePersistence;
+import pe.regioncusco.gob.simecr.application.parametros.infraestructure.data.entities.EjeEntity;
+import pe.regioncusco.gob.simecr.application.parametros.infraestructure.data.repositorys.EjeEntityRepository;
 
 import java.util.List;
 import java.util.Optional;

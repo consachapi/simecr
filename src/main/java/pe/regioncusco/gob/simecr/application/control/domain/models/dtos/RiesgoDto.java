@@ -1,9 +1,9 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.models.dtos;
+package pe.regioncusco.gob.simecr.application.control.domain.models.dtos;
 
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.ImpactoEnum;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.NivelEnum;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.ProbabilidadEnum;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.RiesgoEstado;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.ImpactoEnum;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.NivelEnum;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.ProbabilidadEnum;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.RiesgoEstado;
 
 public class RiesgoDto {
     private Long id;

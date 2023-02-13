@@ -1,8 +1,8 @@
-package pe.regioncusco.gob.simecr.modules.control.infraestructure.data.commons;
+package pe.regioncusco.gob.simecr.application.control.infraestructure.data.commons;
 
 import org.springframework.beans.BeanUtils;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.ActividadControl;
-import pe.regioncusco.gob.simecr.modules.control.infraestructure.data.entities.ActividadControlEntity;
+import pe.regioncusco.gob.simecr.application.control.domain.models.ActividadControl;
+import pe.regioncusco.gob.simecr.application.control.infraestructure.data.entities.ActividadControlEntity;
 
 public class ActividadControlAdapterCommon {
     public static ActividadControlEntity toActividadControlEntity(ActividadControl actividadControl){

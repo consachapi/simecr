@@ -9,6 +9,7 @@ import pe.regioncusco.gob.simecr.core.common.ParamsManager;
 import pe.regioncusco.gob.simecr.core.config.Rest;
 import pe.regioncusco.gob.simecr.application.documento.remediacion.domain.models.dtos.DocumentoRemediacionDto;
 import pe.regioncusco.gob.simecr.application.documento.remediacion.domain.services.DocumentoRemediacionService;
+import pe.regioncusco.gob.simecr.security.common.ParamsSecurity;
 
 import javax.annotation.security.RolesAllowed;
 import java.util.List;
@@ -27,28 +28,28 @@ public class DocumentoRemediacionController {
 
     @GetMapping(LISTAR_POR_ACTIVIDAD)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_USER)
+    @RolesAllowed(ParamsSecurity.ROLE_USER)
     public ResponseEntity<List<DocumentoRemediacionDto>> findAllByActividadControl(@PathVariable Long id){
         return new ResponseEntity<>(documentoRemediacionService.findAllByActividadRemediacion(id), HttpStatus.OK);
     }
 
     @PostMapping(UPLOAD)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_USER)
+    @RolesAllowed(ParamsSecurity.ROLE_USER)
     public ResponseEntity<DocumentoRemediacionDto> upload(@PathVariable Long id, @RequestParam("file") MultipartFile file){
         return new ResponseEntity<>(documentoRemediacionService.uploadFile(id, file), HttpStatus.CREATED);
     }
 
     @GetMapping(VER_DOCUMENTO)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_USER)
+    @RolesAllowed(ParamsSecurity.ROLE_USER)
     public ResponseEntity<String> findFile(@PathVariable String archivo){
         return new ResponseEntity<>(documentoRemediacionService.findFile(archivo), HttpStatus.OK);
     }
 
     @DeleteMapping(ELIMINAR)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RolesAllowed(ParamsManager.ROLE_USER)
+    @RolesAllowed(ParamsSecurity.ROLE_USER)
     public void delete(@PathVariable Long id){
         documentoRemediacionService.delete(id);
     }

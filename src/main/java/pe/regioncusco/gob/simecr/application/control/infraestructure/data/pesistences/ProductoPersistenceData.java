@@ -1,15 +1,15 @@
-package pe.regioncusco.gob.simecr.modules.control.infraestructure.data.pesistences;
+package pe.regioncusco.gob.simecr.application.control.infraestructure.data.pesistences;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import pe.regioncusco.gob.simecr.modules.control.infraestructure.data.entities.ProductoEntity;
-import pe.regioncusco.gob.simecr.modules.control.infraestructure.data.repositorys.ProductoEntityRepository;
-import pe.regioncusco.gob.simecr.modules.control.domain.commons.ProductoDomainCommon;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.Producto;
-import pe.regioncusco.gob.simecr.modules.control.domain.presistences.ProductoPersistence;
+import pe.regioncusco.gob.simecr.application.control.domain.models.Producto;
+import pe.regioncusco.gob.simecr.application.control.infraestructure.data.repositorys.ProductoEntityRepository;
+import pe.regioncusco.gob.simecr.application.control.infraestructure.data.entities.ProductoEntity;
+import pe.regioncusco.gob.simecr.application.control.domain.commons.ProductoDomainCommon;
+import pe.regioncusco.gob.simecr.application.control.domain.presistences.ProductoPersistence;
 
 import java.util.Date;
 import java.util.List;

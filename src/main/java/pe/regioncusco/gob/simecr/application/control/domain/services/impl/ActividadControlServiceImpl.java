@@ -1,21 +1,21 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.services.impl;
+package pe.regioncusco.gob.simecr.application.control.domain.services.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.ActividadEstado;
+import pe.regioncusco.gob.simecr.application.control.domain.models.ActividadControl;
+import pe.regioncusco.gob.simecr.application.control.domain.models.ControlVerificacion;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ActividadControlDto;
+import pe.regioncusco.gob.simecr.application.control.domain.presistences.ActividadControlPersistence;
 import pe.regioncusco.gob.simecr.security.config.AccessTokenImpl;
 import pe.regioncusco.gob.simecr.core.exceptions.BadRequestException;
 import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.ActividadEstado;
-import pe.regioncusco.gob.simecr.modules.control.domain.mappers.ActividadControlMapper;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.ActividadControl;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.ControlVerificacion;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ActividadControlBodyDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ActividadControlDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.presistences.ActividadControlPersistence;
-import pe.regioncusco.gob.simecr.modules.control.domain.services.ActividadControlService;
-import pe.regioncusco.gob.simecr.modules.control.domain.services.ControlVerificacionService;
+import pe.regioncusco.gob.simecr.application.control.domain.mappers.ActividadControlMapper;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ActividadControlBodyDto;
+import pe.regioncusco.gob.simecr.application.control.domain.services.ActividadControlService;
+import pe.regioncusco.gob.simecr.application.control.domain.services.ControlVerificacionService;
 
 import java.util.List;
 import java.util.Optional;

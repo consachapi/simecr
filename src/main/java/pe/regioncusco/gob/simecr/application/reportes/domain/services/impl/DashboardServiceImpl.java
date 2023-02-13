@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.modules.reportes.domain.services.impl;
+package pe.regioncusco.gob.simecr.application.reportes.domain.services.impl;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,9 +13,9 @@ import pe.regioncusco.gob.simecr.application.remediacion.domain.models.Remediaci
 import pe.regioncusco.gob.simecr.application.remediacion.domain.models.dtos.DeficienciaDto;
 import pe.regioncusco.gob.simecr.application.remediacion.domain.services.DeficienciaService;
 import pe.regioncusco.gob.simecr.application.remediacion.domain.services.RemediacionVerificacionService;
-import pe.regioncusco.gob.simecr.modules.reportes.domain.models.RiesgoDeficienciaTotal;
-import pe.regioncusco.gob.simecr.modules.reportes.domain.models.MedidasDashboard;
-import pe.regioncusco.gob.simecr.modules.reportes.domain.services.DashboardService;
+import pe.regioncusco.gob.simecr.application.reportes.domain.services.DashboardService;
+import pe.regioncusco.gob.simecr.application.reportes.domain.models.RiesgoDeficienciaTotal;
+import pe.regioncusco.gob.simecr.application.reportes.domain.models.MedidasDashboard;
 
 import java.util.List;
 

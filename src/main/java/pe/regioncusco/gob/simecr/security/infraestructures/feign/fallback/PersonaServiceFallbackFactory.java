@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.security.restfull.fallback;
+package pe.regioncusco.gob.simecr.security.infraestructures.feign.fallback;
 
 import org.springframework.cloud.openfeign.FallbackFactory;
 import org.springframework.stereotype.Component;

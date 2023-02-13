@@ -3,7 +3,7 @@ package pe.regioncusco.gob.simecr.application.documento.remediacion.infraestruct
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import pe.regioncusco.gob.simecr.application.documento.remediacion.infraestructure.data.entities.DocumentoRemediacionEntity;
-import pe.regioncusco.gob.simecr.modules.remediacion.infraestructure.data.entities.ActividadRemediacionEntity;
+import pe.regioncusco.gob.simecr.application.remediacion.infraestructure.data.entities.ActividadRemediacionEntity;
 
 import java.util.List;
 

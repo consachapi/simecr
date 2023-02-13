@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.security.restfull.models;
+package pe.regioncusco.gob.simecr.security.infraestructures.feign.models;
 
 import java.util.List;
 

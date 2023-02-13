@@ -1,8 +1,8 @@
-package pe.regioncusco.gob.simecr.commons;
+package pe.regioncusco.gob.simecr.core.common;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pe.regioncusco.gob.simecr.exceptions.BadRequestException;
+import pe.regioncusco.gob.simecr.core.exceptions.BadRequestException;
 
 import java.io.IOException;
 import java.nio.file.Files;

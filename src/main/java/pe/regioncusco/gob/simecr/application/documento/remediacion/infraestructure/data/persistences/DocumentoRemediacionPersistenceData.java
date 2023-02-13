@@ -8,9 +8,9 @@ import pe.regioncusco.gob.simecr.application.documento.remediacion.infraestructu
 import pe.regioncusco.gob.simecr.application.documento.remediacion.domain.models.DocumentoRemediacion;
 import pe.regioncusco.gob.simecr.application.documento.remediacion.domain.persistences.DocumentoRemediacionPersistence;
 import pe.regioncusco.gob.simecr.application.documento.remediacion.infraestructure.data.entities.DocumentoRemediacionEntity;
-import pe.regioncusco.gob.simecr.modules.remediacion.domain.models.ActividadRemediacion;
-import pe.regioncusco.gob.simecr.modules.remediacion.infraestructure.data.commons.ActividadRemediacionAdapterCommon;
-import pe.regioncusco.gob.simecr.modules.remediacion.infraestructure.data.entities.ActividadRemediacionEntity;
+import pe.regioncusco.gob.simecr.application.remediacion.domain.models.ActividadRemediacion;
+import pe.regioncusco.gob.simecr.application.remediacion.infraestructure.data.commons.ActividadRemediacionAdapterCommon;
+import pe.regioncusco.gob.simecr.application.remediacion.infraestructure.data.entities.ActividadRemediacionEntity;
 import pe.regioncusco.gob.simecr.security.infraestructures.database.entities.PersonaEntity;
 import pe.regioncusco.gob.simecr.security.domains.commons.PersonaCommon;
 import pe.regioncusco.gob.simecr.security.domains.models.Persona;

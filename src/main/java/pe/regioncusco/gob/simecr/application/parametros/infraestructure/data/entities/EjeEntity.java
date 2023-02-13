@@ -1,7 +1,7 @@
-package pe.regioncusco.gob.simecr.modules.parametros.infraestructure.data.entities;
+package pe.regioncusco.gob.simecr.application.parametros.infraestructure.data.entities;
 
 import org.springframework.beans.BeanUtils;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Eje;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Eje;
 
 import javax.persistence.*;
 

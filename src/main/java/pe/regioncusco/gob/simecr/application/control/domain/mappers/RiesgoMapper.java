@@ -1,16 +1,16 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.mappers;
+package pe.regioncusco.gob.simecr.application.control.domain.mappers;
 
 import org.mapstruct.InjectionStrategy;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.ImpactoEnum;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.NivelEnum;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.ProbabilidadEnum;
+import pe.regioncusco.gob.simecr.application.control.domain.enums.RiesgoEstado;
+import pe.regioncusco.gob.simecr.application.control.domain.models.Riesgo;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.RiesgoDto;
 import pe.regioncusco.gob.simecr.core.common.MyValue;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.ImpactoEnum;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.NivelEnum;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.ProbabilidadEnum;
-import pe.regioncusco.gob.simecr.modules.control.domain.enums.RiesgoEstado;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.Riesgo;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.RiesgoDto;
 
 
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR, uses = {ProductoMapper.class})

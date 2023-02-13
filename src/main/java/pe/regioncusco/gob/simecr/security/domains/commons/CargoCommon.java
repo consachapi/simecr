@@ -1,6 +1,6 @@
-package pe.regioncusco.gob.simecr.security.domain.commons;
+package pe.regioncusco.gob.simecr.security.domains.commons;
 
-import pe.regioncusco.gob.simecr.commons.MyValue;
+import pe.regioncusco.gob.simecr.core.common.MyValue;
 import pe.regioncusco.gob.simecr.security.infraestructures.database.entities.CargoEntity;
 import pe.regioncusco.gob.simecr.security.domains.models.Cargo;
 

@@ -1,15 +1,16 @@
-package pe.regioncusco.gob.simecr.modules.control.infraestructure.api;
+package pe.regioncusco.gob.simecr.application.control.infraestructure.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ProductoBodyDto;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.ProductoDto;
 import pe.regioncusco.gob.simecr.core.common.MyValue;
 import pe.regioncusco.gob.simecr.core.common.ParamsManager;
 import pe.regioncusco.gob.simecr.core.config.Rest;
-import pe.regioncusco.gob.simecr.modules.control.domain.services.ProductoService;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ProductoBodyDto;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.ProductoDto;
+import pe.regioncusco.gob.simecr.application.control.domain.services.ProductoService;
+import pe.regioncusco.gob.simecr.security.common.ParamsSecurity;
 
 import javax.annotation.security.RolesAllowed;
 import java.util.List;
@@ -30,42 +31,42 @@ public class ProductoController {
 
     @GetMapping(LISTAR)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<List<ProductoDto>> findAll(){
         return new ResponseEntity<>(productoService.findAll(), HttpStatus.OK);
     }
 
     @PostMapping(CREAR)
     @ResponseStatus(HttpStatus.CREATED)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<ProductoDto> save(@RequestBody ProductoBodyDto producto){
         return new ResponseEntity<>(productoService.save(producto), HttpStatus.CREATED);
     }
 
     @PutMapping(EDITAR)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<ProductoDto> update(@PathVariable Long id, @RequestBody ProductoBodyDto producto){
         return new ResponseEntity<>(productoService.update(id, producto), HttpStatus.OK);
     }
 
     @GetMapping(MOSTRAR)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_USER)
+    @RolesAllowed(ParamsSecurity.ROLE_USER)
     public ResponseEntity<ProductoDto> find(@PathVariable Long id){
         return new ResponseEntity<>(productoService.findById(id), HttpStatus.OK);
     }
 
     @DeleteMapping(ELIMINAR)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RolesAllowed(ParamsManager.ROLE_ADMIN)
+    @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public void delete(@PathVariable Long id){
         productoService.delete(id);
     }
 
     @GetMapping(SELECCIONAR)
     @ResponseStatus(HttpStatus.OK)
-    @RolesAllowed(ParamsManager.ROLE_USER)
+    @RolesAllowed(ParamsSecurity.ROLE_USER)
     public ResponseEntity<List<MyValue>> findAllActive(){
         return new ResponseEntity<>(productoService.findAllActive(), HttpStatus.OK);
     }

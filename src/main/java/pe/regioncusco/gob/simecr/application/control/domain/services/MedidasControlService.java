@@ -1,7 +1,7 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.services;
+package pe.regioncusco.gob.simecr.application.control.domain.services;
 
-import pe.regioncusco.gob.simecr.modules.control.domain.models.MedidasControl;
-import pe.regioncusco.gob.simecr.modules.control.domain.models.dtos.MedidasControlDto;
+import pe.regioncusco.gob.simecr.application.control.domain.models.MedidasControl;
+import pe.regioncusco.gob.simecr.application.control.domain.models.dtos.MedidasControlDto;
 
 import java.util.List;
 

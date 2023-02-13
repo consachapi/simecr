@@ -1,16 +1,16 @@
-package pe.regioncusco.gob.simecr.modules.configuracion.infraestructure.data.persistences;
+package pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.persistences;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+import pe.regioncusco.gob.simecr.application.configuracion.domain.models.UnidadEjecutoria;
+import pe.regioncusco.gob.simecr.application.configuracion.application.persistences.UnidadEjecutoraPersistence;
+import pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.entities.UnidadEjecutoriaEntity;
+import pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.respositorys.UnidadEjecutoriaEntityRepository;
 import pe.regioncusco.gob.simecr.core.enums.Status;
-import pe.regioncusco.gob.simecr.modules.configuracion.domain.models.UnidadEjecutoria;
-import pe.regioncusco.gob.simecr.modules.configuracion.domain.persistences.UnidadEjecutoraPersistence;
-import pe.regioncusco.gob.simecr.modules.configuracion.infraestructure.data.commons.UnidadEjecutoraCommonData;
-import pe.regioncusco.gob.simecr.modules.configuracion.infraestructure.data.entities.UnidadEjecutoriaEntity;
-import pe.regioncusco.gob.simecr.modules.configuracion.infraestructure.data.respositorys.UnidadEjecutoriaEntityRepository;
+import pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.commons.UnidadEjecutoraCommonData;
 
 import java.util.List;
 import java.util.Optional;

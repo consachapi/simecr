@@ -1,7 +1,7 @@
-package pe.regioncusco.gob.simecr.security.data.entities;
+package pe.regioncusco.gob.simecr.security.infraestructures.database.entities;
 
 import org.springframework.beans.BeanUtils;
-import pe.regioncusco.gob.simecr.security.domain.models.Cargo;
+import pe.regioncusco.gob.simecr.security.domains.models.Cargo;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.commons.enums;
+package pe.regioncusco.gob.simecr.core.enums;
 
 public enum Status {
     ENABLED(true),

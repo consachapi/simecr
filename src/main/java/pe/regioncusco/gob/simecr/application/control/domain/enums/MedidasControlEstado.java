@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.enums;
+package pe.regioncusco.gob.simecr.application.control.domain.enums;
 
 import org.springframework.lang.Nullable;
 import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;

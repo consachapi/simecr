@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.security.domain.services.impl;
+package pe.regioncusco.gob.simecr.security.applications.services.impl;
 
 import org.keycloak.admin.client.CreatedResponseUtil;
 import org.keycloak.admin.client.Keycloak;
@@ -12,20 +12,20 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pe.regioncusco.gob.simecr.commons.ParamsManager;
-import pe.regioncusco.gob.simecr.config.AccessTokenImpl;
-import pe.regioncusco.gob.simecr.config.UtilConfig;
-import pe.regioncusco.gob.simecr.exceptions.BadRequestException;
-import pe.regioncusco.gob.simecr.exceptions.ConflictException;
-import pe.regioncusco.gob.simecr.exceptions.NotFoundException;
-import pe.regioncusco.gob.simecr.modules.configuracion.domain.models.UnidadEjecutoria;
-import pe.regioncusco.gob.simecr.modules.configuracion.domain.services.UnidadEjecutoraService;
+import pe.regioncusco.gob.simecr.security.common.ParamsSecurity;
+import pe.regioncusco.gob.simecr.security.config.AccessTokenImpl;
+import pe.regioncusco.gob.simecr.security.config.UtilConfig;
+import pe.regioncusco.gob.simecr.core.exceptions.BadRequestException;
+import pe.regioncusco.gob.simecr.core.exceptions.ConflictException;
+import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
+import pe.regioncusco.gob.simecr.application.configuracion.domain.models.UnidadEjecutoria;
+import pe.regioncusco.gob.simecr.application.configuracion.application.services.UnidadEjecutoraService;
 import pe.regioncusco.gob.simecr.security.domains.dtos.UserDto;
 import pe.regioncusco.gob.simecr.security.domains.dtos.UsuarioDto;
 import pe.regioncusco.gob.simecr.security.domains.models.Persona;
 import pe.regioncusco.gob.simecr.security.domains.models.Usuario;
-import pe.regioncusco.gob.simecr.security.domain.services.PersonaService;
-import pe.regioncusco.gob.simecr.security.domain.services.UsuarioService;
+import pe.regioncusco.gob.simecr.security.applications.services.PersonaService;
+import pe.regioncusco.gob.simecr.security.applications.services.UsuarioService;
 
 import javax.ws.rs.core.Response;
 import java.util.*;
@@ -33,7 +33,6 @@ import java.util.*;
 @Service
 public class UsuarioServiceImpl implements UsuarioService {
     private static final Logger LOG = LoggerFactory.getLogger(UsuarioServiceImpl.class);
-    private static final String ADMIN_CARGO = "Administrador del Sistema";
 
     @Autowired private AccessTokenImpl accessToken;
     @Autowired private UtilConfig config;
@@ -54,20 +53,20 @@ public class UsuarioServiceImpl implements UsuarioService {
         }
 
         List<UnidadEjecutoria> unidadEjecutorias = new ArrayList<>();
-        if(accessToken.getEjecCodigo().equals("000")){
+        if(accessToken.getEjecCodigo().equals(ParamsSecurity.UNIDAD_EJECUTORA_DEFAULT)){
             unidadEjecutorias = unidadEjecutoraService.findAllActive();
         } else {
             unidadEjecutorias.add(unidadEjecutoraService.findUnidadEjecutoraById(accessToken.getEjecCodigo()));
         }
 
         Usuario usuario = new Usuario();
-        if(username.equals("admin")){
+        if(username.equals(ParamsSecurity.SUPER_USER)){
             UserRepresentation userRepresentation = findByUsername(username);
             usuario.setUsuario(username);
             usuario.setNombres(userRepresentation.getFirstName());
             usuario.setNombresCompleto(userRepresentation.getFirstName() + " del " + userRepresentation.getLastName());
-            usuario.setCargo(ADMIN_CARGO);
-            usuario.setRole("SUPER");
+            usuario.setCargo(ParamsSecurity.SUPER_CARGO);
+            usuario.setRole(ParamsSecurity.SUPER);
             usuario.setUnidadEjecutorias(unidadEjecutorias);
             usuario.setAnio(2023);
             return usuario;
@@ -79,27 +78,33 @@ public class UsuarioServiceImpl implements UsuarioService {
         usuario.setCargo(persona.getCargo().getDescripcion());
         usuario.setUnidadEjecutorias(unidadEjecutorias);
 
-        if(roles.contains(ParamsManager.REALM_ADMIN)){
-            usuario.setRole("ADMIN");
+        if(roles.contains(ParamsSecurity.REALM_ADMIN)){
+            usuario.setRole(ParamsSecurity.ADMIN);
             return usuario;
         }
 
-        if(roles.contains(ParamsManager.REALM_RESP)){
-            usuario.setRole("RESP");
+        if(roles.contains(ParamsSecurity.REALM_RESP)){
+            usuario.setRole(ParamsSecurity.RESP);
             return usuario;
         }
 
-        usuario.setRole("USER");
+        usuario.setRole(ParamsSecurity.USER);
         return usuario;
     }
 
     @Override
     public void logout(String session) {
         Keycloak keycloak = config.keycloak();
-        RealmResource realmResource = keycloak.realm(ParamsManager.REALM);
+        RealmResource realmResource = keycloak.realm(ParamsSecurity.REALM);
         LOG.info("Cerrando sesion {}", session);
         realmResource.deleteSession(session);
     }
+
+
+
+
+
+
 
 
     @Override
@@ -107,7 +112,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         Persona persona = personaService.findById(usuario.getUsername());
         LOG.info("Creando usuario para {} - {}", usuario.getUsername(), usuario.getFirstname());
         Keycloak keycloak = config.keycloak();
-        RealmResource realmResource = keycloak.realm(ParamsManager.REALM);
+        RealmResource realmResource = keycloak.realm(ParamsSecurity.REALM);
         UsersResource usersRessource = realmResource.users();
         UserRepresentation userNuevo = new UserRepresentation();
         userNuevo.setEmailVerified(false);
@@ -146,7 +151,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public UserRepresentation findByUsername(String username) {
         Keycloak keycloak = config.keycloak();
-        Optional<UserRepresentation> user = keycloak.realm(ParamsManager.REALM)
+        Optional<UserRepresentation> user = keycloak.realm(ParamsSecurity.REALM)
                 .users()
                 .search(username)
                 .stream().filter(u -> u.getUsername().equals(username)).findFirst();
@@ -168,7 +173,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Override
     public UserDto reset(String usuario, Map<String, Object> password) {
         Keycloak keycloak = config.keycloak();
-        RealmResource realmResource = keycloak.realm(ParamsManager.REALM);
+        RealmResource realmResource = keycloak.realm(ParamsSecurity.REALM);
         UsersResource usersRessource = realmResource.users();
 
         CredentialRepresentation passwordCred = new CredentialRepresentation();
@@ -261,11 +266,11 @@ public class UsuarioServiceImpl implements UsuarioService {
     private List<RoleRepresentation> roles(String perfil, RealmResource realmResource){
         List<RoleRepresentation> roles = new ArrayList<>();
         if(perfil.equals("ADMINISTRADOR")){
-            roles.add(realmResource.roles().get(ParamsManager.REALM_ADMIN).toRepresentation());
-            roles.add(realmResource.roles().get(ParamsManager.REALM_USER).toRepresentation());
+            roles.add(realmResource.roles().get(ParamsSecurity.REALM_ADMIN).toRepresentation());
+            roles.add(realmResource.roles().get(ParamsSecurity.REALM_USER).toRepresentation());
             return roles;
         }
-        roles.add(realmResource.roles().get(ParamsManager.REALM_USER).toRepresentation());
+        roles.add(realmResource.roles().get(ParamsSecurity.REALM_USER).toRepresentation());
         return roles;
     }
 
@@ -274,7 +279,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         String id = users.getId();
         LOG.info("Usuario ID {}", id);
         Keycloak keycloak = config.keycloak();
-        RealmResource realmResource = keycloak.realm(ParamsManager.REALM);
+        RealmResource realmResource = keycloak.realm(ParamsSecurity.REALM);
         UsersResource usersRessource = realmResource.users();
 
         UserResource userResource = usersRessource.get(id);
@@ -284,7 +289,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     }
 
     private RealmResource getRealmResource(){
-        return config.keycloak().realm(ParamsManager.REALM);
+        return config.keycloak().realm(ParamsSecurity.REALM);
     }
 
 }

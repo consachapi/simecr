@@ -1,11 +1,11 @@
-package pe.regioncusco.gob.simecr.security.data.entities;
+package pe.regioncusco.gob.simecr.security.infraestructures.database.entities;
 
 import org.springframework.beans.BeanUtils;
-import pe.regioncusco.gob.simecr.modules.parametros.domain.models.Oficina;
-import pe.regioncusco.gob.simecr.modules.parametros.infraestructure.data.entities.OficinaEntity;
-import pe.regioncusco.gob.simecr.security.domain.models.Cargo;
-import pe.regioncusco.gob.simecr.security.domain.models.Perfil;
-import pe.regioncusco.gob.simecr.security.domain.models.Persona;
+import pe.regioncusco.gob.simecr.application.parametros.domain.models.Oficina;
+import pe.regioncusco.gob.simecr.application.parametros.infraestructure.data.entities.OficinaEntity;
+import pe.regioncusco.gob.simecr.security.domains.models.Cargo;
+import pe.regioncusco.gob.simecr.security.domains.models.Perfil;
+import pe.regioncusco.gob.simecr.security.domains.models.Persona;
 
 import javax.persistence.*;
 import java.util.Date;

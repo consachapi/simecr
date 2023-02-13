@@ -11,8 +11,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import pe.regioncusco.gob.simecr.commons.ParamsManager;
-import pe.regioncusco.gob.simecr.exceptions.BadRequestException;
+import pe.regioncusco.gob.simecr.core.common.ParamsManager;
+import pe.regioncusco.gob.simecr.core.exceptions.BadRequestException;
 import pe.regioncusco.gob.simecr.s3.S3Service;
 import pe.regioncusco.gob.simecr.s3.model.Asset;
 

@@ -1,9 +1,10 @@
-package pe.regioncusco.gob.simecr.config;
+package pe.regioncusco.gob.simecr.security.config;
 
 import org.keycloak.adapters.springsecurity.token.KeycloakAuthenticationToken;
 import org.keycloak.representations.AccessToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
+import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
 
 import java.security.Principal;
 import java.util.Set;
@@ -16,14 +17,14 @@ public class AccessTokenImpl {
     public String getUserId(){
         accessToken();
         if(accessToken == null){
-            return "";
+            throw new NotFoundException("Verifique su sesion.");
         }
         return accessToken.getPreferredUsername();
     }
 
     public String getUserName(){
         if(accessToken == null){
-            return "";
+            throw new NotFoundException("Verifique su sesion.");
         }
         return accessToken.getName();
     }
@@ -31,11 +32,11 @@ public class AccessTokenImpl {
     public Set<String> getUserRole(){
         accessToken();
         if(accessToken == null){
-            return null;
+            throw new NotFoundException("Verifique su sesion.");
         }
 
         if(accessToken.getRealmAccess() == null){
-            return null;
+            throw new NotFoundException("Verifique su sesion.");
         }
         return accessToken.getRealmAccess().getRoles();
     }

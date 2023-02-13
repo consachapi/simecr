@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.exceptions;
+package pe.regioncusco.gob.simecr.core.exceptions;
 
 public class ForbiddenException extends RuntimeException {
     private static final String DESCRIPTION = "Forbidden Exception";

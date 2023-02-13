@@ -2,8 +2,8 @@ package pe.regioncusco.gob.simecr.application.documento.remediacion.infraestruct
 
 import org.springframework.beans.BeanUtils;
 import pe.regioncusco.gob.simecr.application.documento.remediacion.domain.models.DocumentoRemediacion;
-import pe.regioncusco.gob.simecr.modules.remediacion.domain.models.ActividadRemediacion;
-import pe.regioncusco.gob.simecr.modules.remediacion.infraestructure.data.entities.ActividadRemediacionEntity;
+import pe.regioncusco.gob.simecr.application.remediacion.domain.models.ActividadRemediacion;
+import pe.regioncusco.gob.simecr.application.remediacion.infraestructure.data.entities.ActividadRemediacionEntity;
 import pe.regioncusco.gob.simecr.security.infraestructures.database.entities.PersonaEntity;
 import pe.regioncusco.gob.simecr.security.domains.models.Persona;
 

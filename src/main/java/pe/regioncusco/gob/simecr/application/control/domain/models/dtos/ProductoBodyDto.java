@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.modules.control.domain.models.dtos;
+package pe.regioncusco.gob.simecr.application.control.domain.models.dtos;
 
 public class ProductoBodyDto {
     private String descripcion;

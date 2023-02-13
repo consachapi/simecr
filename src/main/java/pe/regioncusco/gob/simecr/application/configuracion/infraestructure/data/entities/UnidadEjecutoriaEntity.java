@@ -1,7 +1,7 @@
-package pe.regioncusco.gob.simecr.modules.configuracion.infraestructure.data.entities;
+package pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.entities;
 
 import org.springframework.beans.BeanUtils;
-import pe.regioncusco.gob.simecr.modules.configuracion.domain.models.UnidadEjecutoria;
+import pe.regioncusco.gob.simecr.application.configuracion.domain.models.UnidadEjecutoria;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
