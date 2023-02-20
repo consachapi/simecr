@@ -48,14 +48,15 @@ public class PersonalController {
     @ResponseStatus(HttpStatus.OK)
     @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<Persona> findById(@PathVariable String ndocumento){
-        return new ResponseEntity<>(personaService.findById(ndocumento), HttpStatus.OK);
+        return new ResponseEntity<>(personaService.findPersonaById(ndocumento), HttpStatus.OK);
     }
-
+/*
     @GetMapping(CONSULTAR)
     @ResponseStatus(HttpStatus.OK)
     @RolesAllowed(ParamsSecurity.ROLE_ADMIN)
     public ResponseEntity<Persona> consultar(@PathVariable String ndocumento){
-        return new ResponseEntity<>(personaService.consultar(ndocumento), HttpStatus.OK);
+        return null;
+        //return new ResponseEntity<>(personaService.consultar(ndocumento), HttpStatus.OK);
     }
 
     @PostMapping(CREAR)
@@ -78,5 +79,5 @@ public class PersonalController {
     public void delete(@PathVariable String ndocumento){
         personaService.delete(ndocumento);
     }
-
+*/
 }

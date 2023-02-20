@@ -1,7 +1,7 @@
-package pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.commons;
+package pe.regioncusco.gob.simecr.application.configuracion.infraestructure.database.commons;
 
 import pe.regioncusco.gob.simecr.application.configuracion.domain.models.UnidadEjecutoria;
-import pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.entities.UnidadEjecutoriaEntity;
+import pe.regioncusco.gob.simecr.application.configuracion.infraestructure.database.entities.UnidadEjecutoriaEntity;
 
 public final class UnidadEjecutoraCommonData {
     public static UnidadEjecutoriaEntity toEntity(UnidadEjecutoria unidadEjecutoria){

@@ -11,5 +11,5 @@ public interface UnidadEjecutoraPersistence {
     UnidadEjecutoria create(UnidadEjecutoria unidadEjecutoria);
     Optional<UnidadEjecutoria> findById(String id);
     UnidadEjecutoria update(String id, UnidadEjecutoria unidadEjecutoria);
-    void disabled(String id, boolean enabled);
+    void disabled(UnidadEjecutoria unidadEjecutoria, boolean enabled);
 }

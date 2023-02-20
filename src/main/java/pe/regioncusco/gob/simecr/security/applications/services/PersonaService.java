@@ -7,9 +7,11 @@ import pe.regioncusco.gob.simecr.security.domains.models.Persona;
 public interface PersonaService {
     Page<Persona> findAll(int page, int size);
     Page<Persona> findByNumeroDocumentoContains(String termino, int page, int size);
-    Persona findById(String ndocumento);
+    Persona findPersonaById(String ndocumento);
+
+    /*
     Persona create(PersonaBodyDto personaBodyDto);
     Persona update(String ndocumento, PersonaBodyDto personaBodyDto);
     void delete(String id);
-    Persona consultar(String ndocumento);
+    Persona consultar(String ndocumento);*/
 }

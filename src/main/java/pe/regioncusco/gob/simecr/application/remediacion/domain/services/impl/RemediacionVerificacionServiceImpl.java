@@ -85,7 +85,7 @@ public class RemediacionVerificacionServiceImpl implements RemediacionVerificaci
 
     @Override
     public List<RemediacionVerificacionDto> findAllByUsuario() {
-        Persona persona = personaService.findById(accessToken.getUserId());
+        Persona persona = personaService.findPersonaById(accessToken.getUserId());
         if(persona.getPerfil().getDescripcion().equals("ADMINISTRADOR")){
             List<RemediacionVerificacion> remediacionVerificacions = remediacionVerificacionPersistence.findAll();
             return remediacionVerificacions.stream().map(remediacionVerificacion -> remediacionVerificacionMapper.toRemediacionVerificacionDto(remediacionVerificacion)).collect(Collectors.toList());

@@ -1,4 +1,4 @@
-package pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.persistences;
+package pe.regioncusco.gob.simecr.application.configuracion.infraestructure.database.persistences;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,10 +7,10 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import pe.regioncusco.gob.simecr.application.configuracion.domain.models.UnidadEjecutoria;
 import pe.regioncusco.gob.simecr.application.configuracion.application.persistences.UnidadEjecutoraPersistence;
-import pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.entities.UnidadEjecutoriaEntity;
-import pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.respositorys.UnidadEjecutoriaEntityRepository;
+import pe.regioncusco.gob.simecr.application.configuracion.infraestructure.database.entities.UnidadEjecutoriaEntity;
+import pe.regioncusco.gob.simecr.application.configuracion.infraestructure.database.respositorys.UnidadEjecutoriaEntityRepository;
 import pe.regioncusco.gob.simecr.core.enums.Status;
-import pe.regioncusco.gob.simecr.application.configuracion.infraestructure.data.commons.UnidadEjecutoraCommonData;
+import pe.regioncusco.gob.simecr.application.configuracion.infraestructure.database.commons.UnidadEjecutoraCommonData;
 
 import java.util.List;
 import java.util.Optional;
@@ -52,6 +52,7 @@ public class UnidadEjecutoraPersistenceData implements UnidadEjecutoraPersistenc
     }
 
     @Override
+    @Transactional
     public UnidadEjecutoria update(String id, UnidadEjecutoria unidadEjecutoria) {
         UnidadEjecutoriaEntity unidadEjecutoriaEntity = unidadEjecutoriaEntityRepository.findById(id).get();
         unidadEjecutoriaEntity.setDescripcion(unidadEjecutoria.getDescripcion());
@@ -61,9 +62,11 @@ public class UnidadEjecutoraPersistenceData implements UnidadEjecutoraPersistenc
     }
 
     @Override
-    public void disabled(String id, boolean enabled) {
-        UnidadEjecutoriaEntity unidadEjecutoriaEntity = unidadEjecutoriaEntityRepository.findById(id).get();
+    @Transactional
+    public void disabled(UnidadEjecutoria unidadEjecutoria, boolean enabled) {
+        UnidadEjecutoriaEntity unidadEjecutoriaEntity = unidadEjecutoriaEntityRepository.findById(unidadEjecutoria.getCodigo()).get();
         unidadEjecutoriaEntity.setEnabled(enabled);
+        LOG.info("Cambiando estado de {} a ", unidadEjecutoria.getCodigo(), enabled);
         unidadEjecutoriaEntityRepository.save(unidadEjecutoriaEntity);
     }
 

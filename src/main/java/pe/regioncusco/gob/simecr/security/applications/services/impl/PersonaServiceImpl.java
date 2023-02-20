@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import pe.regioncusco.gob.simecr.core.enums.Status;
+import pe.regioncusco.gob.simecr.security.applications.persistences.PersonaPersistence;
 import pe.regioncusco.gob.simecr.security.config.AccessTokenImpl;
 import pe.regioncusco.gob.simecr.core.exceptions.ConflictException;
 import pe.regioncusco.gob.simecr.core.exceptions.NotFoundException;
@@ -34,33 +35,28 @@ public class PersonaServiceImpl implements PersonaService {
     private static final Logger LOG = LoggerFactory.getLogger(PersonaServiceImpl.class);
 
     @Autowired private AccessTokenImpl accessToken;
-    @Autowired private PersonaEntityRepository personaEntityRepository;
+    @Autowired private PersonaPersistence personaPersistence;
     @Autowired private UsuarioService usuarioService;
     @Autowired private PersonaFeignClient personaFeignClient;
     @Autowired private OficinaService oficinaService;
 
     @Override
     public Page<Persona> findAll(int page, int size) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by("nombres").and(Sort.by("ndocumento")));
-        Page<PersonaEntity> personaEntities = personaEntityRepository.findAll(pageable);
-        LOG.info("Personas obtenidad {}", personaEntities.getTotalElements());
-        return PersonaCommon.toPagePersona(personaEntities, pageable);
+        return personaPersistence.findAll(page, size);
     }
 
     @Override
     public Page<Persona> findByNumeroDocumentoContains(String termino, int page, int size) {
-        Pageable pageable = PageRequest.of(page, size, Sort.by("nombres").and(Sort.by("ndocumento")));
-        Page<PersonaEntity> personaEntities = personaEntityRepository.findAllByNdocumentoContains(termino, pageable);
-        LOG.info("Buscando el personal {}, encontrados {}", termino, personaEntities.getTotalElements());
-        return PersonaCommon.toPagePersona(personaEntities, pageable);
+        return personaPersistence.findByNumeroDocumentoContains(termino, page, size);
     }
 
     @Override
-    public Persona findById(String ndocumento) {
-        PersonaEntity personaEntity = findByNumDoc(ndocumento);
-        return personaEntity.toPersona();
+    public Persona findPersonaById(String ndocumento) {
+        return findById(ndocumento);
     }
 
+
+    /*
     @Override
     public Persona create(PersonaBodyDto personaBodyDto) {
         Persona persona = consultar(personaBodyDto.getNdocumento());
@@ -120,14 +116,14 @@ public class PersonaServiceImpl implements PersonaService {
         Oficina oficina = oficinaService.findByAbreviatura(abrevOficina);
         return PersonaCommon.toPersona(personaData, oficina);
     }
-
-    private PersonaEntity findByNumDoc(String id){
-        Optional<PersonaEntity> personaEntity = personaEntityRepository.findById(id);
-        if(!personaEntity.isPresent()){
+*/
+    private Persona findById(String id){
+        Optional<Persona> optional = personaPersistence.findByNdocumento(id);
+        if(!optional.isPresent()){
             LOG.error("No existe la persona con documento {}", id);
             throw new NotFoundException("No existe la persona con documento " + id);
         }
-        return personaEntity.get();
+        return optional.get();
     }
 
 }

@@ -17,11 +17,6 @@ public final class PersonaCommon {
         return personaEntities.stream().map(PersonaEntity::toPersona).collect(Collectors.toList());
     }
 
-    public static Page<Persona> toPagePersona(Page<PersonaEntity> personaEntityPage, Pageable pageable){
-        long totalElements = personaEntityPage.getTotalElements();
-        return new PageImpl<Persona>(personaEntityPage.stream().map(personaEntity -> personaEntity.toPersona()).collect(Collectors.toList()), pageable, totalElements);
-    }
-
     public static PersonaEntity toPersonaEntity(Persona persona){
         OficinaEntity oficinaEntity = new OficinaEntity();
         oficinaEntity.setId(persona.getArea().getId());

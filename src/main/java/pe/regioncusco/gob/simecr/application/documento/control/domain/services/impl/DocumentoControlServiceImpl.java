@@ -65,7 +65,7 @@ public class DocumentoControlServiceImpl implements DocumentoControlService {
     @Override
     public DocumentoControlDto uploadFile(Long id, MultipartFile file) {
         ActividadControl actividadControl = actividadControlService.findActividadControlById(id);
-        Persona persona = personaService.findById(accessToken.getUserId());
+        Persona persona = personaService.findPersonaById(accessToken.getUserId());
 
         String fileNameHash = Utils.generateFileName();
         String extension = StringUtils.getFilenameExtension(file.getOriginalFilename());

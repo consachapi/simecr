@@ -45,7 +45,7 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new NotFoundException("Usuario no existe");
         }
         String username = accessToken.getUserId();
-        Persona persona = personaService.findById(username);
+        Persona persona = personaService.findPersonaById(username);
         Set<String> roles = accessToken.getUserRole();
         if(roles.isEmpty()){
             LOG.warn("Usuario {} sin rol.", accessToken.getUserId());
@@ -109,7 +109,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public UserDto create(UsuarioDto usuario) {
-        Persona persona = personaService.findById(usuario.getUsername());
+        Persona persona = personaService.findPersonaById(usuario.getUsername());
         LOG.info("Creando usuario para {} - {}", usuario.getUsername(), usuario.getFirstname());
         Keycloak keycloak = config.keycloak();
         RealmResource realmResource = keycloak.realm(ParamsSecurity.REALM);

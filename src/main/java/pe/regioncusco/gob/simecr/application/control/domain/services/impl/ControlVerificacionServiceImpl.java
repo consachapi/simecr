@@ -85,7 +85,7 @@ public class ControlVerificacionServiceImpl implements ControlVerificacionServic
 
     @Override
     public List<ControlVerificacionDto> findAllByUsuario() {
-        Persona persona = personaService.findById(accessToken.getUserId());
+        Persona persona = personaService.findPersonaById(accessToken.getUserId());
         if(persona.getPerfil().getDescripcion().equals("ADMINISTRADOR")){
             List<ControlVerificacion> controlVerificacionList = controlVerificacionPersistence.findAll();
             return controlVerificacionList.stream().map(controlVerificacion -> controlVerificacionMapper.toControlVerificacionDto(controlVerificacion)).collect(Collectors.toList());

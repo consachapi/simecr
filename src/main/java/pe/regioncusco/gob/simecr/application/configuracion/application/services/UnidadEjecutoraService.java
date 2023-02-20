@@ -8,6 +8,9 @@ import java.util.List;
 public interface UnidadEjecutoraService {
     List<UnidadEjecutoria> findAll();
     List<UnidadEjecutoria> findAllActive();
-    List<MyValueString> findByIdSelection(String codigo);
     UnidadEjecutoria findUnidadEjecutoraById(String id);
+    UnidadEjecutoria create(UnidadEjecutoria unidadEjecutoria);
+    UnidadEjecutoria update(String id, UnidadEjecutoria unidadEjecutoria);
+    void disabled(String id);
+    void enabled(String id);
 }

@@ -60,7 +60,7 @@ public class DocumentoRemediacionServiceImpl implements DocumentoRemediacionServ
     @Override
     public DocumentoRemediacionDto uploadFile(Long id, MultipartFile file) {
         ActividadRemediacion actividadRemediacion = actividadRemediacionService.findActividadRemediacionById(id);
-        Persona persona = personaService.findById(accessToken.getUserId());
+        Persona persona = personaService.findPersonaById(accessToken.getUserId());
 
         String fileNameHash = Utils.generateFileName();
         String extension = StringUtils.getFilenameExtension(file.getOriginalFilename());
